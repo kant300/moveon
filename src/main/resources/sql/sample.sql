@@ -3,13 +3,25 @@ CREATE DATABASE moveon;
 USE moveon;
 
 CREATE TABLE Criminal(
-    cNo     INT AUTO_INCREMENT,                    -- 성범죄자번호 (기본키)
-    cName     VARCHAR(50) NOT NULL ,           -- 성범죄자이름
-    cAddress    VARCHAR(100) NOT NULL,        -- 성범죄자 실제거주지
-    cAddress2   varchar(100) not null,                 --  성범죄자 등본주소
-    cDay datetime default now(),                                         -- 정보 등록일
-    CONSTRAINT PRIMARY KEY (cNo)
+cNo     INT AUTO_INCREMENT,                    -- 성범죄자번호 (기본키)
+cName     VARCHAR(50) NOT NULL ,           -- 성범죄자이름
+cAddress    VARCHAR(100) NOT NULL,        -- 성범죄자 실제거주지
+cAddress2   varchar(100) not null,                 --  성범죄자 등본주소
+cDay datetime default now(),					-- 정보 등록일
+CONSTRAINT PRIMARY KEY (cNo)
 );
+
+create table trash(
+tNo int auto_increment,        -- 쓰레기 배출 정보 번호
+tCity varchar(50) not null , -- 배출지역시
+tGu varchar(50) not null , -- 배출지역구
+tInfo longtext ,  -- 배출 정보
+tDay datetime default now(), -- 정보 등록일
+constraint primary key (tNo)
+);
+
+insert into trash(tCity,tGu, tInfo) values ('인천광역시' , '부평구' , '정보'),('인천광역시' , '연수구' , '정보');
+
 
 INSERT INTO Criminal (cName, cAddress, cAddress2) VALUES ('강두환', '인천광역시 연수구 함박안로134번길 7-14 (연수동)', '인천광역시 연수구 함박안로134번길 7-14 (연수동)');
 INSERT INTO Criminal (cName, cAddress, cAddress2) VALUES ('김지훈', '인천광역시 연수구 비류대로437번길 15 (연수동)', '인천광역시 연수구 비류대로437번길 15 (연수동)');
@@ -55,5 +67,7 @@ INSERT INTO Criminal (cName, cAddress, cAddress2) VALUES ('현영환', '인천�
 INSERT INTO Criminal (cName, cAddress, cAddress2) VALUES ('홍성오', '인천광역시 부평구 화랑로105번길 25 (산곡동)', '인천광역시 부평구 화랑로105번길 25 (산곡동)');
 INSERT INTO Criminal (cName, cAddress, cAddress2) VALUES ('황유진', '인천광역시 부평구 장제로195번길 33 (부평동)', '인천광역시 부평구 장제로195번길 33 (부평동)');
 
-select cno, cAddress from Criminal;
-select * from Criminal;
+
+
+select * from trash;
+select * from criminal;
