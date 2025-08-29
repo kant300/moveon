@@ -11,7 +11,7 @@
 </head>
 <body>
     
-    
+
     <div id="wrap">
         <div id="menuBox"><img src="favicon.ico" class="menu"> </div>
         <div id="headerBox">
@@ -19,7 +19,7 @@
         </div>
 
         <div><img src="img/weather.png" class="weather">  </div>
-        
+
         <div class="infoBox">
             <div class="btnBox1">
                 <div> 쓰레기 배출정보 </div>
@@ -30,7 +30,7 @@
                 <div> 지하철 엘리베이터 </div>
             </div>
 
-            
+
         </div>
 
     </div>
