@@ -10,27 +10,26 @@
 
 </head>
 <body>
-    
-
     <div id="wrap">
-        <div id="menuBox"><img src="favicon.ico" class="menu"> </div>
-        <div id="headerBox">
-            <img src="favicon.ico" class="logo"><span class="title"> mOveOn </span>
-        </div>
-
-        <div><img src="img/weather.png" class="weather">  </div>
-
-        <div class="infoBox">
-            <div class="btnBox1">
-                <div> 쓰레기 배출정보 </div>
-                <div> 의류수거함 위치정보 </div>
-            </div>
-            <div class="btnBox2">
-                <div> 성범죄자 알리미 </div>
-                <div> 지하철 엘리베이터 </div>
+        <div id="container">
+            <div id="menuBox"><img src="favicon.ico" class="menu"> </div>
+            <div id="headerBox">
+                <img src="favicon.ico" class="logo"><span class="title"> mOveOn </span>
             </div>
 
+            <div><img src="img/weather.png" class="weather">  </div>
 
+            <div class="infoBox">
+                <div class="btnBox1">
+                    <div><a href="#"> <img src="favicon.ico" class="sample"><br/>쓰레기 배출정보 </a></div>
+                    <div><a href="#"> <img src="favicon.ico" class="sample"><br/>의류수거함 위치정보 </a></div>
+                </div>
+                <div class="btnBox2">
+                    <div><a href="#"> <img src="favicon.ico" class="sample"><br/>성범죄자 알리미 </a></div>
+                    <div><a href="#"> <img src="favicon.ico" class="sample"><br/>지하철 엘리베이터 </a></div>
+                </div>
+
+            </div>
         </div>
 
     </div>

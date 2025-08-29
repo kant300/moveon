@@ -6,8 +6,14 @@
     
     
     }  /*폰트변경해야함 */
-
-#wrap{ 
+body{
+    
+}
+#wrap{
+    display: flex;
+    justify-content: center
+}
+#container{ 
     flex-direction: column;
     width: 420px; height: 900px;
     display: flex;
@@ -35,6 +41,19 @@
     font-weight: bold;}
 
 
-.weather{ width: 380px; height: 250px;}
-.btnBox1{display: flex;}
-.btnBox2{display: flex;}
+.weather{ 
+    width: 380px; height: 250px;}
+
+.btnBox1{
+    display: flex;
+    justify-content: space-evenly;
+    width: 380px;}
+.btnBox2{
+    display: flex;
+    justify-content: space-evenly;
+    width: 380px;}
+
+.sample{ 
+    width: 135px;
+    height: 135px;
+}
