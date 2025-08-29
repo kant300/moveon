@@ -3,12 +3,17 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    
-    
+    text-decoration: none;
     }  /*폰트변경해야함 */
-body{
-    
+
+a:hover,
+a:visited,
+a:active {
+  color: black;
+  text-decoration: none;
 }
+
+
 #wrap{
     display: flex;
     justify-content: center
@@ -27,19 +32,17 @@ body{
 
     display: flex;
     justify-content:flex-end ;}
-
 .menu{ 
     width: 50px; height: 50px;
     display: flex;
-    
 }
 
 #headerBox{ display: flex;}
 .logo{ width: 100px; height: 100px;}
 .title{ 
     font-size: 50px;
-    font-weight: bold;}
-
+    font-weight: bold;
+}
 
 .weather{ 
     width: 380px; height: 250px;}
@@ -57,3 +60,4 @@ body{
     width: 135px;
     height: 135px;
 }
+

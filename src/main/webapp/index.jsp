@@ -12,12 +12,12 @@
 <body>
     <div id="wrap">
         <div id="container">
-            <div id="menuBox"><img src="favicon.ico" class="menu"> </div>
+            <div id="menuBox"><a href="#"><img src="favicon.ico" class="menu"></a> </div>
             <div id="headerBox">
-                <img src="favicon.ico" class="logo"><span class="title"> mOveOn </span>
+                <a href="#"><img src="favicon.ico" class="logo"><span class="title"> mOveOn </span></a>
             </div>
 
-            <div><img src="img/weather.png" class="weather">  </div>
+            <div><a href="#"><img src="img/weather.png" class="weather"></a></div>
 
             <div class="infoBox">
                 <div class="btnBox1">
