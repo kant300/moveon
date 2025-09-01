@@ -24,14 +24,36 @@ public class TrashController {
 
     // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를  출력한다.
     @GetMapping("")
-    public List<TrashDto> trashPrint(){
-        return trashService.trashPrint();
-    }
+    public List<TrashDto> trashPrint(){return trashService.trashPrint(); }
 
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
-    @GetMapping("/find") // http:localhost:8080/living/trash/find?=tNo
-    public TrashDto trashfind(@RequestParam int tNo){
-        return trashService.trashfind( tNo );
+    @GetMapping("/find") // http:localhost:8080/living/trash/find?tNo=1
+    public TrashDto trashFind(@RequestParam int tNo){
+        return trashService.trashFind( tNo );
     }
 
+    // [4] 쓰레기 배출정보 삭제	 // 삭제할 쓰레기 번호(tNo)를 입력받아 삭제한다.
+    @DeleteMapping("") // http:localhost:8080/living/trash?tNo=1
+    public boolean trashDelete(@RequestParam int tNo){ return trashService.trashDelete( tNo ); }
+
+    // [5] 쓰레기 배출정보 수정	// 수정할 쓰레기번호 와 배출지역, 배출정보를 수정한다.
+    @PutMapping("") // http:localhost:8080/living/trash
+    public boolean trashUpdate(@RequestBody TrashDto trashDto){ return trashService.trashUpdate(trashDto); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

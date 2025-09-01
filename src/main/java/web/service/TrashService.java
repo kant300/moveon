@@ -22,8 +22,36 @@ public class TrashService {
     public List<TrashDto> trashPrint(){
         return trashDao.trashPrint();
     }
+
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
-    public TrashDto trashfind(int tNo){
-        return trashDao.trashfind( tNo );
+    public TrashDto trashFind(int tNo){
+        return trashDao.trashFind( tNo );
     }
+
+    // [4] 쓰레기 배출정보 삭제	 // 삭제할 쓰레기 번호(tNo)를 입력받아 삭제한다.
+    public boolean trashDelete(int tNo){ return trashDao.trashDelete(tNo);}
+
+    // [5] 쓰레기 배출정보 수정	// 수정할 쓰레기번호 와 배출지역, 배출정보를 수정한다.
+    public boolean trashUpdate(TrashDto trashDto){ return trashDao.trashUpdate(trashDto); }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
