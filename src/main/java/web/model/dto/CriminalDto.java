@@ -1,4 +1,14 @@
 package web.model.dto;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@AllArgsConstructor@NoArgsConstructor@Data
 public class CriminalDto {
+    private int cNo;    // 섬범죄자 번호
+    private String cName;   // 성범죄자 이름
+    private String cAddress;    // 성범죄자 실제거주지
+    private String getcAddress2;    // 성범죄자 등본주소
+
 }
