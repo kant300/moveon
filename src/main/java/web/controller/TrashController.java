@@ -33,7 +33,7 @@ public class TrashController {
     }
 
     // [4] 쓰레기 배출정보 삭제	 // 삭제할 쓰레기 번호(tNo)를 입력받아 삭제한다.
-    @DeleteMapping("") // http:localhost:8080/living/trash?tNo=1
+    @DeleteMapping("") // http://localhost:8080/living/trash?tNo=1
     public boolean trashDelete(@RequestParam int tNo){ return trashService.trashDelete( tNo ); }
 
     // [5] 쓰레기 배출정보 수정	// 수정할 쓰레기번호 와 배출지역, 배출정보를 수정한다.

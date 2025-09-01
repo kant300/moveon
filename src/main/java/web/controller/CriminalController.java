@@ -26,8 +26,12 @@ public class CriminalController {
     public List< String > criminalPrint() { return criminalService.criminalPrint(); }
 
     // [3] 성범죄자 정보삭제
+    @DeleteMapping("") // http://localhost:8080/safety/criminal?cNo=1
+    public boolean criminalDelete( @RequestParam int cNo ){ return  criminalService.criminalDelete( cNo ); }
 
     // [4] 성범죄자 정보수정
+    @PutMapping("")
+    public boolean criminalUpdate( @RequestBody CriminalDto criminalDto ){ return criminalService.criminalUpdate( criminalDto ); }
 
 
 }// class end

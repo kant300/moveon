@@ -2,6 +2,8 @@ package web.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import web.model.dao.CriminalDao;
 import web.model.dto.CriminalDto;
 
@@ -23,6 +25,8 @@ public class CriminalService {
     public List< String  > criminalPrint() { return  criminalDao.criminalPrint(); }
 
     // [3] 성범죄자 정보삭제
+    public boolean criminalDelete( int cNo ){ return  criminalDao.criminalDelete( cNo ); }
 
     // [4] 성범죄자 정보수정
+    public boolean criminalUpdate( CriminalDto criminalDto ){ return criminalDao.criminalUpdate( criminalDto ); }
 }
