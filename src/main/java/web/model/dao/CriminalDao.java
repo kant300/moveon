@@ -1,4 +1,56 @@
 package web.model.dao;
 
-public class CriminalDao {
-}
+import org.springframework.stereotype.Repository;
+import web.model.dto.CriminalDto;
+
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
+
+@Repository
+public class CriminalDao extends Dao{
+    // [1] 성범죄자 정보 등록
+    public boolean criminalAdd( CriminalDto criminalDto){
+        try { // 1. sql 작성한다.
+            String sql = " insert into criminal(cName, cAddress , cAddress2) values( ?,?,?)";
+            // 2. sql 기재한다.
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // 3. sql 매개변수 대입
+            ps.setString(1, criminalDto.getCName());
+            ps.setString(2, criminalDto.getCAddress());
+            ps.setString(3, criminalDto.getGetcAddress2());
+            // 4. sql 실행
+            int count = ps.executeUpdate();
+            // 5. SQL 결과에 따른 로직/리턴/확인
+            if( count == 1 ) return true;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    // [2] 성범죄자 실제거주지 전체조회
+    public List< String > criminalPrint(){
+        List< String  > list = new ArrayList<>();
+        try{ // 1.sql 작성한다.
+            String sql = "select cAddress from criminal"; // 실거주지 주소만 조회
+            // 2. sql 기재
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // 3. sql 매개변수 대입 // 매개변수 없음
+            // 4. sql 실행
+            ResultSet rs = ps.executeQuery();
+            // 5. sql 결과에 따른 로직/리턴/확인
+            while( rs.next()){
+                String cAddress = rs.getString("cAddress");
+                list.add( cAddress );
+            }
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return list;
+    }
+
+
+
+}// class end

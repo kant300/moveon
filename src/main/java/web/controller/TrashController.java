@@ -39,7 +39,7 @@ public class TrashController {
     // [5] 쓰레기 배출정보 수정	// 수정할 쓰레기번호 와 배출지역, 배출정보를 수정한다.
     @PutMapping("") // http:localhost:8080/living/trash
     public boolean trashUpdate(@RequestBody TrashDto trashDto){ return trashService.trashUpdate(trashDto); }
-}
+} //class end
 
 
 
