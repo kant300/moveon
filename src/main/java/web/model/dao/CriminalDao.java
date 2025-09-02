@@ -19,7 +19,7 @@ public class CriminalDao extends Dao{
             // 3. sql 매개변수 대입
             ps.setString(1, criminalDto.getCName());
             ps.setString(2, criminalDto.getCAddress());
-            ps.setString(3, criminalDto.getGetcAddress2());
+            ps.setString(3, criminalDto.getCAddress2());
             // 4. sql 실행
             int count = ps.executeUpdate();
             // 5. SQL 결과에 따른 로직/리턴/확인
