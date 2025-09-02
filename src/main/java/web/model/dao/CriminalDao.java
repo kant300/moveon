@@ -19,7 +19,7 @@ public class CriminalDao extends Dao{
             // 3. sql 매개변수 대입
             ps.setString(1, criminalDto.getCName());
             ps.setString(2, criminalDto.getCAddress());
-            ps.setString(3, criminalDto.getGetcAddress2());
+            ps.setString(3, criminalDto.getCAddress2());
             // 4. sql 실행
             int count = ps.executeUpdate();
             // 5. SQL 결과에 따른 로직/리턴/확인
@@ -49,6 +49,45 @@ public class CriminalDao extends Dao{
             System.out.println(e);
         }
         return list;
+    }
+
+    // [3] 성범죄자 정보삭제
+    public boolean criminalDelete( int cNo ){
+        try{ // 1. sql 작성한다.
+            String sql = "delete from criminal where cNo = ?";
+            // 2. sql 기재
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // 3. sql 매개변수 대입
+            ps.setInt( 1, cNo );
+            // 4. sql 실행
+            int count = ps.executeUpdate();
+            // 5. sql 결과에 따른 로직/리턴/확인
+            if( count == 1 ) return  true;  // 1이면 삭제성공
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
+    }
+
+    // [4] 성범죄자 정보수정
+    public boolean criminalUpdate( CriminalDto criminalDto ){
+        try{ // 1. sql 작성한다
+            String sql = "update criminal set cName = ? , cAddress = ? , cAddress2 = ? where cNo = ?";
+            // 2. sql 기재
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // 3. sql 매개변수 대입
+            ps.setString( 1, criminalDto.getCName());
+            ps.setString( 2, criminalDto.getCAddress());
+            ps.setString( 3, criminalDto.getCAddress2());
+            ps.setInt( 4, criminalDto.getCNo());
+            // 4. sql 실행
+            int count = ps.executeUpdate();
+            // 5. sql 결과에 따른 로직/리턴/확인
+            if( count == 1 ) return true;
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+        return false;
     }
 
 
