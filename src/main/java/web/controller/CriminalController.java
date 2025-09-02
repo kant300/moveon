@@ -15,7 +15,7 @@ public class CriminalController {
     public final CriminalService criminalService;
 
     // [1] 성범죄자 정보 등록
-    @PostMapping("")
+    @PostMapping("")pp
     public boolean criminalAdd(@RequestBody CriminalDto criminalDto){
         System.out.println("criminalDto = " + criminalDto);
         return criminalService.criminalAdd( criminalDto );
