@@ -20,10 +20,11 @@
     <div class="container">
         <input class="title" />
         <textarea class="content" id="summernote" name="editordata"></textarea>
-        <button type="button" onclick="trashAdd()">등록</button>
+
     </div>
 
-    
-    <script src="/js/living/trash/trash.js"></script>
+
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b594c9ba2d5a4fcb4a34dffa19dd7a11"></script>
+    <script src="/js/living/trash.js"></script>
 </body>
 </html>
