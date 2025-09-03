@@ -1,56 +1,4 @@
-// 엘리베이터에서 승강기 번호만 가져와 html에 올리기
-const getNumberTest = async () => {
-    const sKey = "NM5zfvdFgH9DFan%2B%2BUniPqtncI36YA5jxHqzi02c4UIZja3JTiGq4iherjyUWk6%2BD7YuNbf%2B23UBd5J%2B2OLkIA%3D%3D";
-    const url = "https://api.odcloud.kr/api/15083478/v1/uddi:d6f39f13-aeaf-40cb-9894-9f9950d3ea36?page=9&perPage=10&serviceKey=";
-    
-    const option = { method : "GET" };
-    const response = await fetch(url+sKey, option);
-    const data = await response.json();
-
-    const testDiv = document.querySelector("#testDiv");
-    let html = '';
-    let html2 = '';
-    const dataArray = [];
-    for (let i=0; i<data.data.length; i++) {
-        let obj = data.data[i].승강기번호;
-        html += `<div>${obj}</div>`;
-
-        obj = obj.replace("-", "");
-        console.log(obj);
-
-        const fullData = await getDataViaNumbers(obj);
-        const obj2 = fullData.response.body.item;
-        html2 += `<div>
-                    <span class="address">${obj2.address1} ${obj2.address2}</span>
-                    <span class="status">${obj2.elvtrStts}</span>
-                </div>`;
-        dataArray[i] = obj2;
-    }
-
-    const fullDiv = document.querySelector("#fullDiv");
-
-    testDiv.innerHTML = html;
-    fullDiv.innerHTML = html2;
-
-    return dataArray;
-}
-
-const getDataViaNumbers = async (obj) => {
-    const url = "http://openapi.elevator.go.kr/openapi/service/ElevatorInformationService/getElevatorViewM?serviceKey=";
-    const sKey = "NM5zfvdFgH9DFan%2B%2BUniPqtncI36YA5jxHqzi02c4UIZja3JTiGq4iherjyUWk6%2BD7YuNbf%2B23UBd5J%2B2OLkIA%3D%3D";
-    const elevatorNo = "&elevator_no="+obj;
-
-    const option = {
-        method : "GET",
-        headers : {"Accept": "application/json"}
-    };
-    const response = await fetch(url+sKey+elevatorNo, option);
-    const data = await response.json();
-
-    return data;
-}
-
-const createMap = async () => {
+/* const createMapold = async () => {
     var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
     mapOption = {
         center: new kakao.maps.LatLng(37.4903117, 126.7226046), // 지도의 중심좌표
@@ -63,7 +11,9 @@ const createMap = async () => {
     // 주소-좌표 변환 객체를 생성합니다
     var geocoder = new kakao.maps.services.Geocoder();
 
-    const dataArray = await getNumberTest();
+    
+
+
 
     for (let i=0; i<dataArray.length; i++) {
         // 주소로 좌표를 검색합니다
@@ -102,5 +52,62 @@ const createMap = async () => {
     });    
     }
     
+}*/
+
+const createMap = async () => {
+    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+    mapOption = { 
+        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+        level: 3 // 지도의 확대 레벨
+    };
+
+    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+    
+    // 마커를 표시할 위치와 title 객체 배열입니다 
+    var positions = [
+        {
+            title: '카카오', 
+            latlng: new kakao.maps.LatLng(33.450705, 126.570677)
+        },
+        {
+            title: '생태연못', 
+            latlng: new kakao.maps.LatLng(33.450936, 126.569477)
+        },
+        {
+            title: '텃밭', 
+            latlng: new kakao.maps.LatLng(33.450879, 126.569940)
+        },
+        {
+            title: '근린공원',
+            latlng: new kakao.maps.LatLng(33.451393, 126.570738)
+        }
+    ];
+
+    // 마커 이미지의 이미지 주소입니다
+    var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png"; 
+        
+    for (var i = 0; i < positions.length; i ++) {
+        
+        // 마커 이미지의 이미지 크기 입니다
+        var imageSize = new kakao.maps.Size(24, 35); 
+        
+        // 마커 이미지를 생성합니다    
+        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
+        
+        // 마커를 생성합니다
+        var marker = new kakao.maps.Marker({
+            map: map, // 마커를 표시할 지도
+            position: positions[i].latlng, // 마커를 표시할 위치
+            title : positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+            image : markerImage // 마커 이미지 
+        });
+    }
 }
 createMap();
+
+const getData = async () => {
+    // TODO: getData()로부터 얻은 List<Map<String, String>> 데이터로 좌표 및 데이터 표시
+    const response = await fetch("/station/data");
+    const data = await response.json();
+    console.log(data);
+}
