@@ -1,13 +1,6 @@
 
 console.log('trash.js open');
 
-// [*] 썸머노트 실행
-$(document).ready(function() {
-            $('#summernote').summernote({
-                lang: 'ko-KR' // 한국어 설정
-            });
-        });
-
 
 // [1] 카카오맵 API을 이용하여 현재 위치좌표 => 현재 위치 지역 시,구 정보얻기 
 
@@ -27,7 +20,7 @@ var callback = function(result, status) {
     if (status === kakao.maps.services.Status.OK) {
         console.log(`지역 명칭 : ${result[0].region_1depth_name} ${result[0].region_2depth_name}`); 
         // region_1depth_name : 시도 단위 , region_2depth_name : 구 단위
-        // https://developers.kakao.com/docs/latest/ko/local/dev-guide#coord-to-district
+        // https://developers.kakao.com/docs/latest/ko/local/dev-guide#coord-to-district // 추후 커스텀시 지역정보코드모음
     }
     
 };
