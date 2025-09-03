@@ -8,19 +8,12 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 </head>
 <body>
-    <div id="testDiv">
-        
-    </div>
+    <jsp:include page="/header.jsp"></jsp:include>
 
-    <div id="fullDiv">
-
-    </div>
-
+    <!-- 지도 -->
     <div id="map" style="width:100%;height:350px;"></div>
-    <p><em>지도를 클릭해주세요!</em></p> 
-    <p id="result"></p>
 
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=473cf3e9725a8ab5ab5f7b3c73d0a328&libraries=services"></script>
-    <script src="/js/station.js"></script>
+    <script src="/js/transport/station.js"></script>
 </body>
 </html>
