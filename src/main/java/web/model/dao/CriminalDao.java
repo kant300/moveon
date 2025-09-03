@@ -43,7 +43,7 @@ public class CriminalDao extends Dao{
             // 5. sql 결과에 따른 로직/리턴/확인
             while( rs.next()){
                 String cAddress = rs.getString("cAddress");
-                list.add( cAddress );
+                list.add( cAddress ); // 리스트에 저장
             }
         } catch (Exception e) {
             System.out.println(e);

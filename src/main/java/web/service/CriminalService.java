@@ -9,7 +9,7 @@ import web.model.dto.CriminalDto;
 
 import java.util.List;
 
-@Service
+@Service  // 비지니스 로직을 처리
 @RequiredArgsConstructor // 롬복제공 : final 변수에 대한 생성자 자동 제공
 public class CriminalService {
     // @RequiredArgsConstructor 사용시 ( @Autowired 생략해도 자동으로 의존성이 처리된다.)
