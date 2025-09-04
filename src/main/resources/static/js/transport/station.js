@@ -62,19 +62,3 @@ const createMap = async () => {
     }
 }
 createMap();
-
-const getStationData = async (positions) => {
-    const response = await fetch("/station/data", {method : "GET"});
-    const data = await response.json();
-    for (let i=0; i<data.length; i++) {
-        const obj = data[i];
-        // 2. 매핑된 데이터를 삽입합니다 (키: 값)
-        positions.push({
-            title: obj.역사,
-            latlng: new kakao.maps.LatLng(obj.위도, obj.경도),
-            equipment: obj.장비,
-            unit: obj.호기,
-            status: obj.상태
-        });
-    }
-};
