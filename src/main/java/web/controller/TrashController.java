@@ -18,7 +18,7 @@ public class TrashController {
     // [1] 쓰레기 배출정보 등록 // 쓰레기 배출정보를 입력받아 저장한다.
     @PostMapping("")
     public boolean trashAdd(@RequestBody TrashDto trashDto){
-        System.out.println("trashDto = " + trashDto);
+        System.out.println("컨트롤러 : trashDto = " + trashDto);
         return trashService.trashAdd( trashDto );
     }
 

@@ -15,7 +15,7 @@ public class TrashService {
 
     // [1] 쓰레기 배출정보 등록 // 쓰레기 배출정보를 입력받아 저장한다.
     public boolean trashAdd(TrashDto trashDto){
-        System.out.println("trashDto = " + trashDto);
+        System.out.println("서비스 : trashDto = " + trashDto);
         return trashDao.trashAdd( trashDto );
     }
     // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를  출력한다.
