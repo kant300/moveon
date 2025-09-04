@@ -17,8 +17,15 @@ const addTrash = async() => {
     let tcity = document.querySelector('.tCity').value;
     let tgu = document.querySelector('.tGu').value;
     let tinfo = document.querySelector('.tInfo').value;
+
+    // 유효성 검사 (시,구,배출정보 미입력 시)
+    if( !tcity || !tgu || !tinfo ){
+        alert('지역 시(군), 구(읍), 배출 정보를 모두 입력해 주세요.');
+        return;
+    }
+
     let obj = { tno, tcity , tgu , tinfo , tday }; console.log(obj);
-    
+
     let option = {
         method : "POST",
         headers : { "content-type" : "application/json" },

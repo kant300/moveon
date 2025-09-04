@@ -21,8 +21,15 @@ var callback = function(result, status) {
         console.log(`지역 명칭 : ${result[0].region_1depth_name} ${result[0].region_2depth_name}`); 
         // region_1depth_name : 시도 단위 , region_2depth_name : 구 단위
         // https://developers.kakao.com/docs/latest/ko/local/dev-guide#coord-to-district // 추후 커스텀시 지역정보코드모음
+        
+        // textBox(jsp)에 현재 접속한 (시도단위, 구단위)위치 출력 
+        document.querySelector('#textBox').innerHTML = `현재 접속 위치는 <strong>${result[0].region_1depth_name} ${result[0].region_2depth_name}</strong> 입니다.`;
     }
     
 };
+
+// [3] 쓰레기 배출정보 출력
+
+
 
 
