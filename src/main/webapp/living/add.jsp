@@ -18,17 +18,32 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/summernote-lite.min.css" integrity="sha512-ySljI0ZbsJxjJIpfsg+7ZJOyKzBduAajCJpc4mBiVpGDPln2jVQ0kwYu3e2QQM5fwxLp6VSVaJm8XCK9uWD4uA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- 썸머노트 한글패치 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.9.1/lang/summernote-ko-KR.min.js" integrity="sha512-npFeJw8MO1QVbeFuD7rqVR1CpAbOnUMoYnZIxDbz58biKU52Unq7Av3cn+SZ2KD4yOLWj4bOcjIV1+d4aEXAyg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        #wrap{
+            display: flex;
+            justify-content: center;
+        }
+        #container{
+            width: 420px;
+            height: 900px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
 </head>
 <body>
-    <div id="container">
-        <h3> 쓰레기 정보 등록 </h3> </br>
-        <form id="trashForm">
-        지역시 : <input class="tCity" placeholder="시, 군을 입력하세요."/> </br> </br>
-        지역구 : <input class="tGu" placeholder="지역구를 입력하세요."/> </br> </br>
-        배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> </br>
-        <button type="button" onclick="addTrash()">등록</button>
-        </form>
-    </div>    
+    <div id="wrap">
+        <div id="container">
+            <h3> 쓰레기 정보 등록 </h3> </br>
+            <form id="trashForm">
+            지역시 : <input class="tCity" placeholder="시 또는 군을 입력하세요."/> </br> </br>
+            지역구 : <input class="tGu" placeholder="구 또는 읍을 입력하세요."/> </br> </br>
+            배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> </br>
+            <span><button type="button" onclick="addTrash()">등록</button></span>
+            </form>
+        </div>    
+    </div>
 
     <script src="/js/living/add.js"></script>
 </body>

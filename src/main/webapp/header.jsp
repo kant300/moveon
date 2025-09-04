@@ -13,7 +13,7 @@
         <div id="container">
             <div class="headerBar">
                 <div><a href="#">mOveOn</a></div>
-                <div><a href="#"><img src="favicon.ico" class="topMenu"></a></div>
+                <div><a href="#"><img src="/favicon.ico" class="topMenu"></a></div>
             </div>
 
  
