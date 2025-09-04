@@ -12,12 +12,12 @@ $(document).ready(function() {
 
 // [1] 쓰레기 정보 등록
 const addTrash = async() => {
-    let tNo = '';
-    let tDay = '';
-    let tCity = document.querySelector('.tCity').value;
-    let tGu = document.querySelector('.tGu').value;
-    let tInfo = document.querySelector('.tInfo').value;
-    let obj = { tNo, tCity , tGu , tInfo , tDay }; console.log(obj);
+    let tno = '';
+    let tday = '';
+    let tcity = document.querySelector('.tCity').value;
+    let tgu = document.querySelector('.tGu').value;
+    let tinfo = document.querySelector('.tInfo').value;
+    let obj = { tno, tcity , tgu , tinfo , tday }; console.log(obj);
     
     let option = {
         method : "POST",
