@@ -21,8 +21,31 @@ var callback = function(result, status) {
         console.log(`지역 명칭 : ${result[0].region_1depth_name} ${result[0].region_2depth_name}`); 
         // region_1depth_name : 시도 단위 , region_2depth_name : 구 단위
         // https://developers.kakao.com/docs/latest/ko/local/dev-guide#coord-to-district // 추후 커스텀시 지역정보코드모음
+        
+        // textBox(jsp)에 현재 접속한 (시도단위, 구단위)위치 출력 
+        document.querySelector('#textBox').innerHTML = `현재 접속 위치는 <strong>${result[0].region_1depth_name} ${result[0].region_2depth_name}</strong> 입니다.`;
     }
     
 };
+
+// [3] 쓰레기 개별 배출정보 출력
+
+// [*] 현재 URL 경로상의 tno 매개변수값 가져오기 ( searchParams == queryString == ?매개변수명=값 )
+const params = new URL(location.href).searchParams;
+const tno = params.get('tNo');
+
+const trashFind = async () =>{
+    try{ // 1. 어디에 // fetch로 부터 출력할 쓰레기 정보 조회 요청 
+        const response = await fetch(`/living/trash/find?tNo=${tno}`); // GET => 옵션생략
+        const data = await response.json();
+        // 2 무엇을 // 응답받은 자료를 특정한 html에 출력한다.
+        document.querySelector('#infoBox').innerHTML = data.tinfo;
+
+        
+    }catch(e){console.log(e)};
+}
+trashFind();
+
+
 
 
