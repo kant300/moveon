@@ -13,7 +13,7 @@
 
     <h1> 성범죄자 지도 </h1>
     <!-- 카카오지도 담을 영역 -->
-    <div id="map" style="width:500px;height:400px;"></div>
+    <div id="map" style="width:420px;height:790px;"></div>
 
     <div id="criminal_container">
         내 위치 반경 2km 내 인원수 : <span id="criminal_count"> 0 </span> 명
