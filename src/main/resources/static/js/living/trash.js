@@ -32,11 +32,12 @@ var callback = function(result, status) {
 
 // [*] 현재 URL 경로상의 tno 매개변수값 가져오기 ( searchParams == queryString == ?매개변수명=값 )
 const params = new URL(location.href).searchParams;
-const tno = params.get('tNo');
+const tcity = params.get('tCity');
+const tgu = params.get('tGu');
 
 const trashFind = async () =>{
     try{ // 1. 어디에 // fetch로 부터 출력할 쓰레기 정보 조회 요청 
-        const response = await fetch(`/living/trash/find?tNo=${tno}`); // GET => 옵션생략
+        const response = await fetch(`/living/trash/find?tCity=${tcity}&tGu=${tgu}`); // GET => 옵션생략
         const data = await response.json();
         // 2 무엇을 // 응답받은 자료를 특정한 html에 출력한다.
         document.querySelector('#infoBox').innerHTML = data.tinfo;
