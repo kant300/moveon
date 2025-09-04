@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController // 1. HTTP 요청/응답 자료 매핑 기술
 @RequestMapping("/safety/criminal") // 2. HTTP URL 매핑 기술
-@RequiredArgsConstructor    // 3. final 변수에 대한 자동 생성자 주입
+@RequiredArgsConstructor    // 3. final 변수에 대한 criminalService 자동 생성자 주입 , DI
 public class CriminalController {
     // @RequiredArgsConstructor 사용함으로 @Autowired 생략 한다.
     public final CriminalService criminalService;
