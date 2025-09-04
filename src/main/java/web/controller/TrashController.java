@@ -27,9 +27,9 @@ public class TrashController {
     public List<TrashDto> trashPrint(){return trashService.trashPrint(); }
 
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
-    @GetMapping("/find") // http:localhost:8080/living/trash/find?tNo=1
-    public TrashDto trashFind(@RequestParam int tNo){
-        return trashService.trashFind( tNo );
+    @GetMapping("/find") // http:localhost:8080/living/trash/find?tCity=?&tGu=?
+    public TrashDto trashFind(@RequestParam String tCity, @RequestParam String tGu ){
+        return trashService.trashFind( tCity, tGu );
     }
 
     // [4] 쓰레기 배출정보 삭제	 // 삭제할 쓰레기 번호(tNo)를 입력받아 삭제한다.

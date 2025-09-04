@@ -24,8 +24,7 @@ public class TrashService {
     }
 
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
-    public TrashDto trashFind(int tNo){
-        return trashDao.trashFind( tNo );
+    public TrashDto trashFind( String tCity, String tGu ){ return trashDao.trashFind( tCity,tGu );
     }
 
     // [4] 쓰레기 배출정보 삭제	 // 삭제할 쓰레기 번호(tNo)를 입력받아 삭제한다.
