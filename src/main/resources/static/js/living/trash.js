@@ -36,8 +36,9 @@ var callback = function(result, status) {
         // if 로 광역시 와 도(8) 구분해서
 
 
-        trashFind( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1]  ); // : 쓰레기 개별 배출정보 호출 // 등록시 지역명들을  select 고민!!
-
+        trashFind( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] ); // : 쓰레기 개별 배출정보 호출 // 등록시 지역명들을  select 고민!!
+        
+        trashMove( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] );
     }
     
 };
@@ -53,7 +54,20 @@ const trashFind = async ( tCity , tGu ) =>{
     }catch(e){console.log(e)};
 }
 
+// [4] 이동함수 : living/trash.jsp 사용자가 접속한 위치의 쿼리스트링이 추가된 living/trash/find?tCity=&tGu= 로 이동
 
+const trashMove = (tCity, tGu) => {
+  const urlParams = new URLSearchParams(window.location.search);
+  const currenttCity = urlParams.get('tCity');
+  const currenttGu = urlParams.get('tGu');
+
+  // 쿼리스트링이 없는 주소면 이동
+  if (currenttCity != tCity || currenttGu != tGu) {
+    location.href = `/living/trash.jsp?tCity=${tCity}&tGu=${tGu}`;
+  } else { // 아니면 이동 x
+    console.log('현재 위치와 동일한 URL, 이동하지 않습니다.');
+  }
+};
 
 
 

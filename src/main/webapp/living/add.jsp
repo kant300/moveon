@@ -37,8 +37,17 @@
         <div id="container">
             <h3> 쓰레기 정보 등록 </h3> </br>
             <form id="trashForm">
-            지역시 : <input class="tCity" placeholder="시 또는 군을 입력하세요."/> </br> </br>
-            지역구 : <input class="tGu" placeholder="구 또는 읍을 입력하세요."/> </br> </br>
+            지역시 :
+            <select class="tCity" id="tCitySelect">
+            <option value="">시/도를 선택하세요.</option>
+            <option value="서울특별시">서울특별시</option>
+            <option value="인천광역시">인천광역시</option>
+            <option value="경기도 부천시">경기도 부천시</option>
+            </select> <br><br>
+            지역구 :
+            <select class="tGu" id="tGuSelect">
+            <option value="">시/군/구를 선택하세요.</option>
+            </select> <br><br>
             배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> </br>
             <span><button type="button" onclick="addTrash()">등록</button></span>
             </form>

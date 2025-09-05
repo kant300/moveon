@@ -18,6 +18,6 @@
                 <div><a href="/transport/station.jsp"><img src="/img/elevator_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="icon"></a></div>
             </div>
 
-    <script src='header.js'></script>
+    <script src='footer.js'></script>
 </body>
 </html>
