@@ -12,6 +12,7 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
+            <div id="menuBox"><img src="img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="menu"> </div>
             <div id="headerBox">
                 <img src="favicon.ico" class="logo"><span id="title"> mOveOn </span>
             </div>
@@ -20,12 +21,12 @@
 
             <div class="infoBox">
                 <div class="btnBox1">
-                    <div><a href="/living/trash.jsp"> <img src="img/recycling_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="sample"><br/>쓰레기 배출정보 </a></div>
-                    <div><a href="/living/clothing_bin.jsp"> <img src="img/apparel_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="sample"><br/>의류수거함 위치정보 </a></div>
+                    <div><a href="/living/trash.jsp"> <img src="img/recycling_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/>쓰레기 배출정보 </a></div>
+                    <div><a href="/living/clothing_bin.jsp"> <img src="img/apparel_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/>의류수거함 위치정보 </a></div>
                 </div>
                 <div class="btnBox2">
-                    <div><a href="/safety/criminal.jsp"> <img src="img/crisis_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="sample"><br/>성범죄자 알리미 </a></div>
-                    <div><a href="/transport/station.jsp"> <img src="img/elevator_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="sample"><br/>지하철 엘리베이터 </a></div>
+                    <div><a href="/safety/criminal.jsp"> <img src="img/crisis_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/>성범죄자 알리미 </a></div>
+                    <div><a href="/transport/station.jsp"> <img src="img/elevator_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/>지하철 엘리베이터 </a></div>
                 </div>
 
             </div>

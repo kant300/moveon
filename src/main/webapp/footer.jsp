@@ -9,15 +9,12 @@
     <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
-
-
-            <div class="tabBar">
-                <div><a href="/living/trash.jsp"><img src="/img/recycling_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="icon"></a></div>
-                <div><a href="/living/clothing_bin.jsp"><img src="/img/apparel_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="icon"></a></div>
-                <div><a href="/safety/criminal.jsp"><img src="/img/crisis_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="icon"></a></div>
-                <div><a href="/transport/station.jsp"><img src="/img/elevator_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="icon"></a></div>
-            </div>
-
-    <script src='footer.js'></script>
+    <div class="tabBar">
+        <div><a href="/living/trash.jsp"><img src="/img/recycling_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="icon"></a></div>
+        <div><a href="/living/clothing_bin.jsp"><img src="/img/apparel_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="icon"></a></div>
+        <div><a href="/safety/criminal.jsp"><img src="/img/crisis_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="icon"></a></div>
+        <div><a href="/transport/station.jsp"><img src="/img/elevator_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="icon"></a></div>
+    </div>
+    <script src='header.js'></script>
 </body>
 </html>

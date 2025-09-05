@@ -9,14 +9,10 @@
     <link rel="stylesheet" href="/css/header.css">
 </head>
 <body>
-
-            <div class="headerBar">
-                <div><a href="#">mOveOn</a></div>
-                <div><a href="/index.jsp"><img src="/img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="topMenu"></a></div>
-            </div>
-
- 
-
+    <div class="headerBar">
+        <div><a href="#">mOveOn</a></div>
+        <div><a href="/index.jsp"><img src="/img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="topMenu"></a></div>
+    </div>
     <script src='header.js'></script>
 </body>
 </html>
