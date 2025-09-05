@@ -6,20 +6,24 @@ import web.model.dto.CriminalDto;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class CriminalDao extends Dao{
     // [1] 성범죄자 정보 등록
     public boolean criminalAdd( CriminalDto criminalDto){
         try { // 1. sql 작성한다.
-            String sql = " insert into criminal(cName, cAddress , cAddress2) values( ?,?,?)";
+            String sql = " insert into criminal( cName, cAddress , cAddress2 , latitude,  longitude ) values( ?,?,?,?,? )";
             // 2. sql 기재한다.
             PreparedStatement ps = conn.prepareStatement(sql);
             // 3. sql 매개변수 대입
             ps.setString(1, criminalDto.getCName());
             ps.setString(2, criminalDto.getCAddress());
             ps.setString(3, criminalDto.getCAddress2());
+            ps.setDouble(4, criminalDto.getLatitude());
+            ps.setDouble(5, criminalDto.getLongitude());
             // 4. sql 실행
             int count = ps.executeUpdate();
             // 5. SQL 결과에 따른 로직/리턴/확인
@@ -30,11 +34,11 @@ public class CriminalDao extends Dao{
         return false;
     }
 
-    // [2] 성범죄자 실제거주지 전체조회
-    public List< String > criminalPrint(){
-        List< String  > list = new ArrayList<>();
+    // [2] 성범죄자 실제거주지 위도/경도 전체조회
+    public List< Map<String, Object >> criminalPrint(){
+        List<Map<String , Object>> list = new ArrayList<>();
         try{ // 1.sql 작성한다.
-            String sql = "select cAddress from criminal"; // 실거주지 주소만 조회
+            String sql = "select latitude, longitude from criminal"; // 실거주지 주소 위도, 경도만 조회
             // 2. sql 기재
             PreparedStatement ps = conn.prepareStatement(sql);
             // 3. sql 매개변수 대입 // 매개변수 없음
@@ -42,8 +46,10 @@ public class CriminalDao extends Dao{
             ResultSet rs = ps.executeQuery();
             // 5. sql 결과에 따른 로직/리턴/확인
             while( rs.next()){
-                String cAddress = rs.getString("cAddress");
-                list.add( cAddress ); // 리스트에 저장
+                Map<String , Object> map = new HashMap<>();
+                map.put("latitude", rs.getDouble("latitude"));
+                map.put("longitude", rs.getDouble("longitude"));
+                list.add( map); // 리스트에 저장
             }
         } catch (Exception e) {
             System.out.println(e);
@@ -72,14 +78,16 @@ public class CriminalDao extends Dao{
     // [4] 성범죄자 정보수정
     public boolean criminalUpdate( CriminalDto criminalDto ){
         try{ // 1. sql 작성한다
-            String sql = "update criminal set cName = ? , cAddress = ? , cAddress2 = ? where cNo = ?";
+            String sql = "update criminal set cName = ? , cAddress = ? , cAddress2 = ? latitude = ? , longitude = ? , where cNo = ?";
             // 2. sql 기재
             PreparedStatement ps = conn.prepareStatement(sql);
             // 3. sql 매개변수 대입
             ps.setString( 1, criminalDto.getCName());
             ps.setString( 2, criminalDto.getCAddress());
             ps.setString( 3, criminalDto.getCAddress2());
-            ps.setInt( 4, criminalDto.getCNo());
+            ps.setDouble( 4, criminalDto.getLatitude());
+            ps.setDouble( 5, criminalDto.getLongitude());
+            ps.setInt( 6, criminalDto.getCNo());
             // 4. sql 실행
             int count = ps.executeUpdate();
             // 5. sql 결과에 따른 로직/리턴/확인
