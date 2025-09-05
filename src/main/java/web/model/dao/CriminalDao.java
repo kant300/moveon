@@ -38,7 +38,7 @@ public class CriminalDao extends Dao{
     public List< Map<String, Object >> criminalPrint(){
         List<Map<String , Object>> list = new ArrayList<>();
         try{ // 1.sql 작성한다.
-            String sql = "select latitude, longitude from criminal"; // 실거주지 주소 위도, 경도만 조회
+            String sql = "select latitude, longitude , cAddress from criminal"; // 실거주지 주소 , 위도, 경도만 조회
             // 2. sql 기재
             PreparedStatement ps = conn.prepareStatement(sql);
             // 3. sql 매개변수 대입 // 매개변수 없음
@@ -49,6 +49,7 @@ public class CriminalDao extends Dao{
                 Map<String , Object> map = new HashMap<>();
                 map.put("latitude", rs.getDouble("latitude"));
                 map.put("longitude", rs.getDouble("longitude"));
+                map.put("cAddress" , rs.getString("cAddress"));
                 list.add( map); // 리스트에 저장
             }
         } catch (Exception e) {

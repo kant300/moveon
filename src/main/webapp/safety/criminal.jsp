@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title> 성범죄자 실거주지 조회 </title>
-    <link rel='stylesheet' href='css/safety/criminal.css'>
+    <link rel='stylesheet' href='/css/safety/criminal.css'>
     
 </head>
 <body>
@@ -21,7 +21,7 @@
         </div>
     </div>
     <!-- 카카오지도 API -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35"></script>
+    <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35&libraries=services,geometry"></script>
     <script src='/js/safety/criminal.js'></script>
 </body>
 </html>
