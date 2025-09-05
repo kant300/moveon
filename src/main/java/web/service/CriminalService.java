@@ -8,6 +8,7 @@ import web.model.dao.CriminalDao;
 import web.model.dto.CriminalDto;
 
 import java.util.List;
+import java.util.Map;
 
 @Service  // 비지니스 로직을 처리
 @RequiredArgsConstructor // 롬복제공 : final 변수에 대한 생성자 자동 제공
@@ -22,7 +23,7 @@ public class CriminalService {
     }
 
     // [2] 성범죄자 실제거주지 전체조회
-    public List< String  > criminalPrint() { return  criminalDao.criminalPrint(); }
+    public List<Map<String , Object >> criminalPrint() { return  criminalDao.criminalPrint(); }
 
     // [3] 성범죄자 정보삭제
     public boolean criminalDelete( int cNo ){ return  criminalDao.criminalDelete( cNo ); }

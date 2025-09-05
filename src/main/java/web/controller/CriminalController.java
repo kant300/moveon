@@ -6,6 +6,7 @@ import web.model.dto.CriminalDto;
 import web.service.CriminalService;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController // 1. HTTP 요청/응답 자료 매핑 기술
 @RequestMapping("/safety/criminal") // 2. HTTP URL 매핑 기술
@@ -21,9 +22,9 @@ public class CriminalController {
         return criminalService.criminalAdd( criminalDto );
     }
 
-    // [2] 성범죄자 실제거주지 전체조회
+    // [2] 성범죄자 실제거주지 위도/경도 전체조회
     @GetMapping("")
-    public List< String > criminalPrint() { return criminalService.criminalPrint(); }
+    public List<Map<String , Object >> criminalPrint() { return criminalService.criminalPrint(); }
 
     // [3] 성범죄자 정보삭제
     @DeleteMapping("") // http://localhost:8080/safety/criminal?cNo=1
