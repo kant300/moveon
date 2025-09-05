@@ -23,15 +23,15 @@ const createMap = async () => {
             status: obj.상태
         });
     }
-
-    // 마커 이미지의 이미지 주소입니다
-    var imageSrc = "/img/마커.png";
         
     for (let i = 0; i < positions.length; i ++) {
         const obj = positions[i];
 
+        // 마커 이미지의 이미지 주소입니다
+        var imageSrc = obj.status=="수리중"?"/img/마커_red.png":"/img/마커.png";
         // 마커 이미지의 이미지 크기 입니다
-        var imageSize = new kakao.maps.Size(24, 35); 
+        var imageSize = new kakao.maps.Size(25, 34);
+        // var imageOption = {offset: new kakao.maps.Point(32, 9)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
         
         // 마커 이미지를 생성합니다    
         var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize); 
@@ -45,7 +45,7 @@ const createMap = async () => {
         });
 
         // 3. positions 배열에 삽입한 데이터를 꺼내옵니다
-        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:15px;">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:18px;">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         var iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
         // 인포윈도우를 생성합니다
