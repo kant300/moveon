@@ -9,16 +9,14 @@
     <link rel="stylesheet" href="/css/header.css">
 </head>
 <body>
-    <div id="wrap">
-        <div id="container">
-            <div class="headerBar">
-                <div><a href="#">mOveOn</a></div>
-                <div><a href="#"><img src="/favicon.ico" class="topMenu"></a></div>
-            </div>
 
- 
-        </div>
-    </div>    
+
+    <div class="headerBar">
+        <div><a href="#">mOveOn</a></div>
+        <div><a href="#"><img src="/favicon.ico" class="topMenu"></a></div>
+    </div>
+
+
     <script src='header.js'></script>
 </body>
 </html>

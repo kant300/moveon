@@ -1,4 +1,9 @@
-
+@font-face {
+    font-family: 'YeogiOttaeJalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
 *{ 
     padding: 0px;
     margin: 0px;
@@ -12,21 +17,32 @@ a:active {
   text-decoration: none;
 }    
 
-
+/* 레이아웃 */
 #wrap{
-    display: flex;
-    justify-content: center
+    width: 420px;
+    height: 100vh;
+    margin: 0 auto;
+}
+/* 레이아웃 아래의 본문 */
+#wrap > #container{
+    height: 88vh;
+}
+#wrap > #container > #map{
+    height: 88vh !important;
 }
 
-
 .headerBar{
-    width: 420px; height: 50px;
+    height: 5vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background: rgb(77, 204, 255);
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    padding: 15px;
+}
+.headerBar a{
+        font-weight: bold;
+        font-size: 20px;
+        font-family: 'YeogiOttaeJalnan';
 }
 .topMenu{ 
     width: 50px; height: 50px;
@@ -34,3 +50,69 @@ a:active {
 }
 
 
+
+
+
+/* CHAT GPT CSS */
+/* 버튼 스타일 */
+button, .sample {
+  background: var(--brand);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+button:hover, .sample:hover {
+  background: #4dc3ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* 카드 박스 공통 */
+#container, .content, .infoBox {
+  background: #fff;
+  border-radius: var(--radius-lg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+/* 헤더 글씨 애니메이션 */
+.headerBar a {
+  color: white;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+.headerBar a:hover {
+  color: #222;
+}
+
+/* 푸터 아이콘 효과 */
+.tabBar .icon {
+  color: white;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.tabBar .icon:hover {
+  transform: scale(1.2);
+  color: #222;
+}
+
+/* 배경 꾸미기 */
+body {
+  background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 로고 이미지에 그림자 */
+.logo {
+  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
+}
+
+/* 타이틀 텍스트 강조 */
+.title {
+  background: linear-gradient(90deg, var(--brand), #80deff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

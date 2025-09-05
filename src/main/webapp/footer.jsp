@@ -9,17 +9,13 @@
     <link rel="stylesheet" href="/css/footer.css">
 </head>
 <body>
-    <div id="wrap">
-        <div id="container">
 
-            <div class="tabBar">
-                <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>  
-                <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>  
-                <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>  
-                <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>  
-            </div>
-        </div>
-    </div>    
+    <div class="tabBar">
+        <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>
+        <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>
+        <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>
+        <div><a href="#"><img src="/favicon.ico" class="icon"></a></div>
+    </div>
     <script src='header.js'></script>
 </body>
 </html>

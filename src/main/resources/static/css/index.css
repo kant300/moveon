@@ -14,10 +14,6 @@ a:active {
 }
 
 
-#wrap{
-    display: flex;
-    justify-content: center
-}
 #container{ 
     flex-direction: column;
     width: 420px; height: 900px;

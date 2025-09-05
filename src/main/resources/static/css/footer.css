@@ -12,19 +12,11 @@ a:active {
   text-decoration: none;
 }    
 
-
-#wrap{
-    display: flex;
-    justify-content: center
-}
-
 .tabBar{
-    width: 420px; height: 60px;
+    height: 5vh;
     background: rgb(77, 204, 255);
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
     display: flex;
-    justify-content: space-evenly
+    justify-content: space-evenly;
 }
 
 .icon{
