@@ -28,7 +28,7 @@ a:active {
     height: 88vh;
 }
 #wrap > #container > #map{
-    height: 88vh !important;
+    height: 88vh;
 }
 
 .headerBar{

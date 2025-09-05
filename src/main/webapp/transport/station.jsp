@@ -13,7 +13,7 @@
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
             <!-- 각자가 들어갈 html 들 -->
-            <div id="map" style="width:420px;height:790px;"></div>
+            <div id="map"></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>
