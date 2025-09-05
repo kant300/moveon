@@ -1,5 +1,7 @@
 package web.service;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import java.io.BufferedReader;
@@ -9,6 +11,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -48,11 +51,31 @@ public class WeatherService {
             } else {
                 rd = new BufferedReader(new InputStreamReader(conn.getErrorStream()));
             }
+
+            // 필요한 데이터로 정제
             StringBuilder sb = new StringBuilder();
             String line;
             while ((line = rd.readLine()) != null) {
                 sb.append(line);
             }
+
+            Map<String, String> map = new LinkedHashMap<>();
+            JSONObject obj = new JSONObject(rd);
+            JSONArray array = obj.getJSONObject("items").getJSONArray("item");
+
+            String baseDate = array.getJSONObject(0).getString("baseDate");
+            String baseTime = array.getJSONObject(0).getString("baseTime");
+            int nx = array.getJSONObject(0).getInt("nx");
+            int ny = array.getJSONObject(0).getInt("ny");
+            String category = array.getJSONObject(0).getString("category");
+
+            System.out.println(baseDate);
+            System.out.println(baseTime);
+            System.out.println(nx);
+            System.out.println(ny);
+            System.out.println(category);
+
+
             rd.close();
             conn.disconnect();
             System.out.println(sb.toString());
@@ -61,23 +84,5 @@ public class WeatherService {
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public void timeTest() {
-        LocalDateTime now = LocalDateTime.now();
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMdd");
-        String format = now.format(formatter);
-        DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern(now.getHour()>=10?"HH00":"0H00");
-        String format2 = now.format(formatter2);
-        System.out.println(now);
-        System.out.println(now.getYear());
-        System.out.println(now.getMonthValue());
-        System.out.println(now.getDayOfMonth());
-        System.out.println(now.getHour());
-        System.out.println(now.getMinute());
-        System.out.println(now.getSecond());
-        System.out.println(format);
-        System.out.println(format2);
-
     }
 }
