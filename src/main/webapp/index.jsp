@@ -7,14 +7,13 @@
     <title> 무브온 : 생활편의통합 플랫폼 </title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="css/index.css">
-
 </head>
 <body>
     <div id="wrap">
+        <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div id="menuBox"><img src="img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.png" class="menu"> </div>
             <div id="headerBox">
-                <img src="favicon.ico" class="logo"><span class="title"> mOveOn </span>
+                <img src="favicon.ico" class="logo"><span id="title"> mOveOn </span>
             </div>
 
             <div class="content"><a href="#"><img src="img/weather.png" class="weather"></a></div>

@@ -1,10 +1,16 @@
-
+@font-face {
+    font-family: 'YeogiOttaeJalnan';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
 *{ 
+    font-family: 'YeogiOttaeJalnan';
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
     text-decoration: none;
-    }  /*폰트변경해야함 */
+    }  
 
 a:hover,
 a:visited,
@@ -12,30 +18,21 @@ a:active {
   color: black;
   text-decoration: none;
 }
-
+body {
+  display: flex;
+  justify-content: center;
+}
 
 #container{ 
     flex-direction: column;
-    width: 420px; height: 900px;
+    width: 420px; height: 93vh !important;
     display: flex;
     align-items: center;
-    border: 1px solid rgb(99, 93, 93);
-    border-radius: 30px;
     
 }
-#menuBox{ width: 400px; height: 100px;
-    padding-top: 15px;
-
-    display: flex;
-    justify-content:flex-end ;}
-.menu{ 
-    width: 50px; height: 50px;
-    display: flex;
-}
-
 #headerBox{ display: flex;}
 .logo{ width: 150px; height: 150px;}
-.title{ 
+#title{ 
     display: flex;
     align-items: center;
     font-size: 50px;
@@ -64,4 +61,5 @@ a:active {
     width: 135px;
     height: 135px;
 }
+
 
