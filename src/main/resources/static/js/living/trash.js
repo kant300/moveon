@@ -11,8 +11,8 @@ if (navigator.geolocation) {
         var lat = position.coords.latitude, // 위도
             lon = position.coords.longitude; // 경도
             console.log(lat,lon);
-            // geocoder.coord2RegionCode(lon , lat, callback);
-            geocoder.coord2RegionCode( 126.723325411  , 37.489572382, callback); // 부평역 테스트
+            geocoder.coord2RegionCode(lon , lat, callback);
+            // geocoder.coord2RegionCode( 126.723325411  , 37.489572382, callback); // 부평역 테스트
     });
 }
 // [2] 좌표를 주소로 변환, 화면에 출력
