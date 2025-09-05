@@ -45,7 +45,7 @@ const createMap = async () => {
         });
 
         // 3. positions 배열에 삽입한 데이터를 꺼내옵니다
-        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:15px;">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:18px;">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         var iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
         // 인포윈도우를 생성합니다
