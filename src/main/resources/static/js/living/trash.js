@@ -28,17 +28,18 @@ var callback = function(result, status) {
         document.querySelector('#textBox').innerHTML = `현재 접속 위치는 <strong>${result[0].region_1depth_name} ${result[0].region_2depth_name}</strong> 입니다.`;
 
         const 지역_시도 = result[0].region_1depth_name;
-        console.log( 지역_시도 );   // 경기도 // 인천광역시
+        console.log("지역시도 입니다. "+ 지역_시도 );   // 경기도 // 인천광역시
 
         const 지역_구 = result[0].region_2depth_name;
-        console.log( 지역_구 ); // 부천시 원미구 //
+        console.log("지역구 입니다. "+ 지역_구 ); // 부천시 원미구 //
 
         // if 로 광역시 와 도(8) 구분해서
+  
 
-
-        trashFind( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] ); // : 쓰레기 개별 배출정보 호출 // 등록시 지역명들을  select 고민!!
-        
-        trashMove( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] );
+        trashFind( 지역_시도 , 지역_구 );
+        trashMove( 지역_시도 , 지역_구 );
+        // trashFind( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] ); // : 쓰레기 개별 배출정보 호출 // 등록시 지역명들을  select 고민!!
+        // trashMove( 지역_시도+" "+지역_구.split(" ")[0]  , 지역_구.split(" ")[1] );
     }
     
 };
@@ -65,7 +66,7 @@ const trashMove = (tCity, tGu) => {
   if (currenttCity != tCity || currenttGu != tGu) {
     location.href = `/living/trash.jsp?tCity=${tCity}&tGu=${tGu}`;
   } else { // 아니면 이동 x
-    console.log('현재 위치와 동일한 URL, 이동하지 않습니다.');
+    console.log('스트링이 존재하여 URL, 이동하지 않습니다.');
   }
 };
 
