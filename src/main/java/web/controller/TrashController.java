@@ -22,7 +22,7 @@ public class TrashController {
         return trashService.trashAdd( trashDto );
     }
 
-    // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를  출력한다.
+    // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를 출력한다.
     @GetMapping("")
     public List<TrashDto> trashPrint(){return trashService.trashPrint(); }
 

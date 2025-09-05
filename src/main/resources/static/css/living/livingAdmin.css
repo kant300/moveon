@@ -1,0 +1,12 @@
+
+.addWrap{
+    display: flex;
+    justify-content: center;
+}
+.addContainer{
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+

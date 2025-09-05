@@ -12,7 +12,6 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div id="menuBox"><img src="img/menu_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="menu"> </div>
             <div id="headerBox">
                 <img src="favicon.ico" class="logo"><span id="title"> mOveOn </span>
             </div>

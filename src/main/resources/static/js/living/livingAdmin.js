@@ -1,5 +1,5 @@
 
-console.log('add.js open');
+console.log('livingAdmin.js open');
 
 // [*] 썸머노트 실행
 $(document).ready(function() {
@@ -11,7 +11,7 @@ $(document).ready(function() {
         });
 
 // [1] 쓰레기 정보 등록
-const addTrash = async() => {
+const trashAdd = async() => {
     let tno = '';
     let tday = '';
     let tcity = document.querySelector('.tCity').value;
@@ -38,6 +38,14 @@ const addTrash = async() => {
         console.log(data);
         if( data == true ){
             alert('등록성공');
+            // 등록 성공시 
+            // 시/도, 구 셀렉 값 초기화
+            document.querySelector('.tCity').value = '';
+            guSelect.innerHTML = '<option value="" disabled selected>시/군/구를 선택하세요.</option>';
+            // 썸머노트 내용 초기화
+            $('#summernote').summernote('reset');
+            // 등록 후 새로조회
+            trashPrint(); 
         }else{
             alert('등록실패');
         }
@@ -45,7 +53,7 @@ const addTrash = async() => {
 
 }
 
-// [2] 드롭다운 변경 
+// [1-1] 등록 드롭다운 변경 
 
  const cityData = {
     "서울특별시": [
@@ -164,6 +172,60 @@ const addTrash = async() => {
 
   loadCityOptions();
 
+// [2] 전체조회 
+const trashPrint = async() =>{
+  console.log('trashPrint.exe');
+  // 1. fetch option GET 생략
+  const response = await fetch("/living/trash")
+  // 2. 응답자료 타입변환
+  const data = await response.json();
+  // 3. 어디에
+  const printTbody = document.querySelector('#printTbody')
+  // 4. 무엇을
+  let html = ''; // 초기값 설정
+  for( let i = 0; i < data.length ; i++ ){
+    const dto = data[i]; // i번째 dto 꺼낸다.
+    html += `<tr>
+            <td> ${ dto.tno }</td>
+            <td> ${ dto.tcity }</td>
+            <td> ${ dto.tgu}</td>
+            <td> ${ dto.tinfo }</td>
+            <td> ${ dto.tday }</td>
+            <td>  
+              <button type="button" onclick="trashUpdate(${dto.tno})">수정</button>
+              <button type="button" onclick="trashDelete(${dto.tno})">삭제</button>
+            </td>
+        </tr>`
+  }
+  // 5. 출력
+  printTbody.innerHTML = html;
+}
+trashPrint(); // 최초 1번 실행
+
+// [3] 수정
+const trashUpdate = async( tno ) =>{
+  console.log('trashUpdate.exe');
+  location.href="/living/livingAdminUpdate.jsp"
+}
+
+
+
+// [4] 삭제
+const trashDelete = async( tno ) =>{
+  console.log('trashDelete.exe');
+    // 1. fetch 
+    const option = { method : "DELETE"}
+    const response = await fetch( `/living/trash?tNo=${tno}`,option);
+    const data = await response.json();
+    // 2. fetch 응답
+    if( data == true ){
+        alert('삭제 성공');
+        trashPrint();
+    }else{
+        alert('삭제 실패');
+    }
+  
+}
 
 
 
@@ -179,25 +241,6 @@ const addTrash = async() => {
 
 
 
-
-
-// // [1] 쓰레기 정보 등록 ??
-// const addTrash = async() => {
-//     // 1. 전송할 폼 가져오기
-//     const trashForm = document.querySelector('#trashForm');
-//     // 2. 대용량 첨부파일 폼 전환
-//     const trashFormData = new FormData( trashForm );
-//     const option = { 
-//         method : "POST", // header 생략 가능
-//         body : trashFormData 
-//     }
-//     const response = await fetch( "/living/trash" , option );
-//     const data = await response.json();
-//     //
-//     if( data == true ){ alert('등록 성공'); }
-//     else{alert('등록 실패'); }
-    
-// } // func end
 
 
 
