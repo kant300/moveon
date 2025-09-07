@@ -13,6 +13,22 @@
     <!-- 카카오지도 담을 영역 -->
     <div id="map" style="width:420px;height:790px;"></div>
 
+    <table>
+        <thead>
+            <tr>
+                <td>연번</td>
+                <td>경도</td>
+                <td>위도</td>
+                <td>관리번호</td>
+                <td>도로명 주소</td>
+            </tr>
+        </thead>
+        <tbody id="dataTbody">
+
+        </tbody>
+    </table>
+
+
     <!-- 카카오지도 API -->
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35"></script>
     <script src="/js/living/clothing_bin.js"></script>
