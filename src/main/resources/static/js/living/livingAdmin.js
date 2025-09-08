@@ -192,7 +192,7 @@ const trashPrint = async() =>{
             <td> ${ dto.tinfo }</td>
             <td> ${ dto.tday }</td>
             <td>  
-              <button type="button" onclick="trashUpdate(${dto.tno})">수정</button>
+              <button type="button" onclick="trashUpdateMove('${dto.tcity}','${dto.tgu}')">수정</button>
               <button type="button" onclick="trashDelete(${dto.tno})">삭제</button>
             </td>
         </tr>`
@@ -202,10 +202,10 @@ const trashPrint = async() =>{
 }
 trashPrint(); // 최초 1번 실행
 
-// [3] 수정
-const trashUpdate = async( tno ) =>{
+// [3] 수정페이지로 이동
+const trashUpdateMove = async( tcity,tgu ) =>{
   console.log('trashUpdate.exe');
-  location.href="/living/livingAdminUpdate.jsp"
+  location.href=`/living/livingAdminUpdate.jsp?tCity=${tcity}&tGu=${tgu}`
 }
 
 
