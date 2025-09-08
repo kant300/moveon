@@ -8,25 +8,18 @@
     <link rel='stylesheet' href='css/living/clothing_bin.css'>
 </head>
 <body>
-    <jsp:include page="/header.jsp"></jsp:include>
+    <div id="wrap">
+        <jsp:include page="/header.jsp"></jsp:include>
+        <div id="container">
+            <div id="map"></div>
+        </div>
+        <jsp:include page="/footer.jsp"></jsp:include>
+    </div>
 
-    <!-- 카카오지도 담을 영역 -->
-    <div id="map" style="width:420px;height:790px;"></div>
 
-    <table>
-        <thead>
-            <tr>
-                <td>연번</td>
-                <td>경도</td>
-                <td>위도</td>
-                <td>관리번호</td>
-                <td>도로명 주소</td>
-            </tr>
-        </thead>
-        <tbody id="dataTbody">
 
-        </tbody>
-    </table>
+
+    
 
 
     <!-- 카카오지도 API -->
