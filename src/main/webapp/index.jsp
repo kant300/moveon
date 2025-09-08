@@ -18,12 +18,12 @@
 
             <div class="weatherBox">
                 <div class="weather">
-                    <div class="location">인천 부평구 (테스트)</div>
-                    <div class="t1h">기온 : 30.2도</div>
+                    <div class="location">인천 부평구 (테스트용 샘플 데이터)</div>
+                    <div class="t1h">기온 : 30도</div>
                     <div class="reh">습도 : 86%</div>
                     <div class="pty">날씨 : 맑음</div>
-                    <div class="vec">풍향 : 동서쪽</div>
-                    <div class="wsd">풍속 : 12m/s</div>
+                    <div class="sky">하늘 : 맑음</div>
+                    <div class="wsd">풍속 : 5m/s</div>
                 </div>
             </div>
 
