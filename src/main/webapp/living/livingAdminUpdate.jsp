@@ -38,7 +38,7 @@
             <option value="">시/군/구를 선택하세요.</option>
             </select> <br><br>
             배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> </br>
-            <span><button type="button" onclick="trashUpdate()">수정</button></span>
+            <span><button type="button" onclick="trashFind()">수정</button></span>
             </form>
         </div>    
     </div>

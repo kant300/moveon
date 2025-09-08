@@ -139,7 +139,7 @@ const tcity = params.get('tCity');
 const tgu = params.get('tGu');
 
 
-// [3] 수정 함수
+// [3] 이전 값 조회 함수
 const trashFind = async (tcity, tgu) => {
   console.log('trashFind.exe');
   try {
@@ -156,10 +156,33 @@ const trashFind = async (tcity, tgu) => {
 
     // 3. tInfo를 썸머노트에디터에 가져오기
     $('#summernote').summernote('code', data.tinfo);
-
-  } catch (e) {
-    console.log(e);
-  }
+  } 
+  
+  catch (e) {console.log(e);}
 };
 
-trashFind(tcity, tgu);
+trashFind(tcity,tgu);
+
+// [4] 수정 함수
+const trashUpdate = async (tcity,tgu) => {
+  
+  console.log('trashUpdate.exe');
+    guSelect.value = data.tgu;
+    const obj = { tcity: citySelect.value , tgu : guSelect.value , tinfo:  $('#summernote').summernote('code')};
+    try{
+      const option = {
+        method : "PUT",
+        headers : { "Content-Type" : "application/json"},
+        body : JSON.stringify( obj )
+      }
+      const response = await fetch("/living/trash" , option); 
+      const data = await response.json();
+    if( data == true ){
+       alert('수정 완료')
+       location.href="/living/livingAdmin.jsp"
+    }else{
+      alert('수정 실패')
+    }
+    }catch (error){console.loe(error);}
+}
+
