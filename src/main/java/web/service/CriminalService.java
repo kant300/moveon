@@ -22,7 +22,7 @@ public class CriminalService {
         return criminalDao.criminalAdd( criminalDto );
     }
 
-    // [2] 성범죄자 실제거주지 전체조회
+    // [2] 성범죄자 실제거주지 위도,경도 전체조회
     public List<Map<String , Object >> criminalPrint() { return  criminalDao.criminalPrint(); }
 
     // [3] 성범죄자 정보삭제
