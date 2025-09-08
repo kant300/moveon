@@ -3,11 +3,9 @@ package web.controller;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import web.service.WeatherService;
-
-import java.util.List;
-import java.util.Map;
 
 @RestController
 @RequestMapping("/weather")
@@ -16,7 +14,9 @@ public class WeatherController {
     private final WeatherService weatherService;
 
     @GetMapping("")
-    public List<Map<String, String>> getData() {
-        return weatherService.getData();
+    public String getData(@RequestParam int lat, @RequestParam int lon) {
+        String result =  weatherService.getWeatherData(lat, lon);
+        // System.out.println("result = " + result);
+        return result;
     }
 }

@@ -24,7 +24,7 @@ dependencies {
     // lombok 롬복 라이브러리 설치
     implementation("net.sf.opencsv:opencsv:2.3") // OpenCSV
     implementation 'org.seleniumhq.selenium:selenium-java:4.35.0' // Selenium
-    implementation("org.json:json:20250517") // org.json
+    implementation 'io.github.bonigarcia:webdrivermanager:6.3.1' // web driver manager
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 }
