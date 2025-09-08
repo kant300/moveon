@@ -21,8 +21,7 @@ const displayWeather = async () => {
             if (data.response.header.resultCode != "00") {
                 console.log(data.response.header.resultCode);
                 console.log(data.response.header.resultMsg);
-                html += `NO DATA`;
-                weather.innerHTML = html;
+                weather.innerHTML = 'NO DATA';
                 return;                
             }
 
