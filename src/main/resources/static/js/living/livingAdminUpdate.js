@@ -164,11 +164,10 @@ const trashFind = async (tcity, tgu) => {
 trashFind(tcity,tgu);
 
 // [4] 수정 함수
-const trashUpdate = async (tcity,tgu) => {
-  
+const trashUpdate = async () => {
+  const tno=null;
   console.log('trashUpdate.exe');
-    guSelect.value = data.tgu;
-    const obj = { tcity: citySelect.value , tgu : guSelect.value , tinfo:  $('#summernote').summernote('code')};
+    const obj = { tno:tno ,tcity: citySelect.value , tgu : guSelect.value , tinfo:  $('#summernote').summernote('code')};
     try{
       const option = {
         method : "PUT",
@@ -183,6 +182,6 @@ const trashUpdate = async (tcity,tgu) => {
     }else{
       alert('수정 실패')
     }
-    }catch (error){console.loe(error);}
+    }catch (error){console.log(error);}
 }
 
