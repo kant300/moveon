@@ -54,6 +54,7 @@ public class TrashDao extends Dao{
         return list;
     } // m end
 
+
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
     public TrashDto trashFind( String tCity, String tGu ){
         try{// 1. SQL 작성

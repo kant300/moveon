@@ -21,7 +21,7 @@
 
     <h3> 관리자 페이지 </h3> </br>
     
-    <h3> 등록 구역 </h3>
+    <h3> 등록 </h3>
     <div class="addWrap">
         <div class="addContainer">
             <h3> 쓰레기 정보 등록 </h3> </br>
@@ -44,7 +44,7 @@
     </div>
     
 
-    <h3> 조회 구역 </h3>
+    <h3> 조회 </h3>
     <div class="printWrap">
         <div class="printContainer">
             <table>
