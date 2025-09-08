@@ -1,10 +1,12 @@
 package web.service;
 
 import au.com.bytecode.opencsv.CSVReader;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
@@ -56,7 +58,11 @@ public class StationService {
     // 고장현황 사이트 스크래핑
     // !! 요청을 너무 많이, 자주 보내지 않도록 주의할 것 !!
     public List<Map<String, String>> getWebData() {
-        WebDriver driver = new ChromeDriver();
+        // 웹사이트 크롤링 시 새 창을 띄우지 않도록 설정
+        WebDriverManager.chromedriver().setup();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new", "--disable-gpu");
+        WebDriver driver = new ChromeDriver(options);
 
         // 고장현황 URL 주소
         driver.get("https://www.ictr.or.kr/main/railway/guidance/elevator.jsp");

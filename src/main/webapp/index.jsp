@@ -16,7 +16,16 @@
                 <img src="favicon.ico" class="logo"><span id="title"> mOveOn </span>
             </div>
 
-            <div class="content"><a href="#"><img src="img/weather.png" class="weather"></a></div>
+            <div class="weatherBox">
+                <div class="weather">
+                    <div class="location">인천 부평구 (테스트)</div>
+                    <div class="t1h">기온 : 30.2도</div>
+                    <div class="reh">습도 : 86%</div>
+                    <div class="pty">날씨 : 맑음</div>
+                    <div class="vec">풍향 : 동서쪽</div>
+                    <div class="wsd">풍속 : 12m/s</div>
+                </div>
+            </div>
 
             <div class="infoBox">
                 <div class="btnBox1">
@@ -31,6 +40,7 @@
             </div>
         </div>
     </div>
-    <script src='/index.js'></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b594c9ba2d5a4fcb4a34dffa19dd7a11&libraries=services"></script>
+    <script src='/js/index.js'></script>
 </body>
 </html>
