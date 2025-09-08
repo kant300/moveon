@@ -31,6 +31,25 @@ const createMap = async () => {
         marker.setPosition(latlng);
    
         const clickLocation = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
+
+                    // 2km 반경의 원생성
+            const circle = new kakao.maps.Circle({
+                center: clickLocation,
+                radius: 2000,
+                strokeWeight: 5,
+                strokeColor: '#75B8FA',
+                strokeOpacity: 0.8,
+                strokeStyle: 'dashed',
+                fillColor: '#CFE7FF',
+                fillOpacity: 0.5
+            });
+            circle.setMap(null);
+            circle.setMap(map);
+            
+            // 지도의 중심을 내 위치로 이동하고 줌 레벨 조정
+            map.setCenter(clickLocation);
+            map.setLevel(5);
+
         await loadCriminals(map, clickLocation);
 
     });
@@ -63,6 +82,8 @@ const createMap = async () => {
                 fillColor: '#CFE7FF',
                 fillOpacity: 0.5
             });
+            
+            circle.setMap(null);
             circle.setMap(map);
             
             // 지도의 중심을 내 위치로 이동하고 줌 레벨 조정
