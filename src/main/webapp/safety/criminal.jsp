@@ -14,11 +14,12 @@
     <div id="wrap">
         <h1> 성범죄자 지도 </h1>
         <!-- 카카오지도 담을 영역 -->
-        <div id="map" style="width:420px;height:790px;"></div>
-
         <div id="criminal_container">
             내 위치 반경 2km 내 인원수 : <span id="criminal_count"> 0 </span> 명
         </div>
+        <div id="map" style="width:420px;height:790px;"></div>
+
+        
     </div>
     <!-- 카카오지도 API -->
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35&libraries=services,geometry"></script>
