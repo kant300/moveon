@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'NanumGothic';
-    src: url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+    src: url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css') format('font-woff');
     font-weight: normal;
     font-display: swap;
 }
@@ -100,7 +100,7 @@ button:hover, .sample:hover {
 /* 배경 꾸미기 */
 body {
   background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
-  font-family: 'Noto Sans KR', sans-serif;
+  src: url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css') format('font-woff');
 }
 
 /* 로고 이미지에 그림자 */
