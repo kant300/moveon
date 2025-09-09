@@ -1,6 +1,4 @@
-// 1. 카카오맵 초기화
-const createMap = async () => {
-  const mapContainer = document.querySelector('#map');
+const mapContainer = document.querySelector('#map');
   const mapOption = {
     center: new kakao.maps.LatLng(37.4123326, 126.6878251), // 지도의 중심좌표 (원인재역)
     level: 3 // 지도의 확대레벨
@@ -8,7 +6,9 @@ const createMap = async () => {
 
   const map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
-  let circle = null;
+// 1. 카카오맵 초기화
+const createMap = async () => {
+    let circle = null;
   let clickMarker = null; // 클릭으로 생성된 마커 저장용
 
   // 지도 클릭 이벤트
@@ -157,3 +157,26 @@ const loadCriminals = async (map, myLocation) => {
 
   document.getElementById('criminal_count').innerText = criminalCount;
 };
+
+const addressSearchBtn = () => {
+  const tf_keyword = document.querySelector(".tf_keyword").value;
+
+  // 주소-좌표 변환 객체를 생성합니다
+  var geocoder = new kakao.maps.services.Geocoder();
+
+  // 주소로 좌표를 검색합니다
+  geocoder.addressSearch(tf_keyword, function(result, status) {
+
+      // 정상적으로 검색이 완료됐으면 
+      if (status === kakao.maps.services.Status.OK) {
+
+          var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+          console.log(coords);
+
+          
+
+          // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+          map.setCenter(coords);
+      }
+  });   
+}

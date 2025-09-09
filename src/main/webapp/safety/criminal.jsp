@@ -20,10 +20,10 @@
             내 위치 반경 2km 내 등록된 성범죄자 인원수 : <span id="criminal_count"> 0 </span> 명
         </div>
         <div class="box_search">
-        <input type="search" id="innerQuery" class="tf_keyword" value title="검색어 입력"
+        <input type="text" id="innerQuery" class="tf_keyword" value title="검색어 입력"
         placeholder="장소, 주소, 버스검색" name autocomplete="off" autocorrect="off" autocapitalize="off"
         spellcheck="false" maxlength="100">
-        <button type="button"> 주소검색 </button>
+        <button type="button" onclick="addressSearchBtn()"> 주소검색 </button>
         </div>
         
 
