@@ -106,10 +106,6 @@ body {
   src: url('http://fonts.googleapis.com/earlyaccess/nanumgothic.css') format('font-woff');
 }
 
-/* 로고 이미지에 그림자 */
-.logo {
-  filter: drop-shadow(0 5px 8px rgba(0,0,0,0.2));
-}
 
 /* 타이틀 텍스트 강조 */
 .title {
