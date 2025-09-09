@@ -138,6 +138,7 @@ const params = new URL(location.href).searchParams;
 const tcity = params.get('tCity');
 const tgu = params.get('tGu');
 
+let tno = null;
 
 // [3] 이전 값 조회 함수
 const trashFind = async (tcity, tgu) => {
@@ -145,6 +146,7 @@ const trashFind = async (tcity, tgu) => {
   try {
     const response = await fetch(`/living/trash/find?tCity=${tcity}&tGu=${tgu}`);
     const data = await response.json();
+    tno = data.tno;
 
     // 1. 시 옵션 가져오기
     loadCityOptions();
@@ -165,9 +167,13 @@ trashFind(tcity,tgu);
 
 // [4] 수정 함수
 const trashUpdate = async () => {
-  const tno=null;
+
   console.log('trashUpdate.exe');
-    const obj = { tno:tno ,tcity: citySelect.value , tgu : guSelect.value , tinfo:  $('#summernote').summernote('code')};
+    const tcity = citySelect.value;
+    const tgu = guSelect.value;
+    const tinfo = $('#summernote').summernote('code');
+
+    const obj = { tno , tcity, tgu , tinfo };
     try{
       const option = {
         method : "PUT",
@@ -176,7 +182,7 @@ const trashUpdate = async () => {
       }
       const response = await fetch("/living/trash" , option); 
       const data = await response.json();
-    if( data == true ){
+    if( data === true ){
        alert('수정 완료')
        location.href="/living/livingAdmin.jsp"
     }else{
