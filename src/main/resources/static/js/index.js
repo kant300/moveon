@@ -77,8 +77,8 @@ const displayWeather = async () => {
                     // HTML에 그리기
                     const weather = document.querySelector(".weather");
                     let html = `<div class="addr"><strong>${addr}</strong>의 날씨 (${hour}시 기준)</div>
-                                    <div class="t1h">${icon} ${t1h}°</div>
-                                    <div class="pty">${pty}</div>
+                                    <div class="t1h">${icon} ${t1h}° ${pty}</div>
+                                    
 
                                     <div class="weatherDetails">
                                         <div class="item">
