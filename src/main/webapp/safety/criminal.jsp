@@ -26,8 +26,8 @@
         <button type="button"> 주소검색 </button>
         </div>
         
-
-        <div id="map"></div>
+        
+        <div id="map" style="height: 83vh;"></div>
         <jsp:include page="/footer.jsp"></jsp:include>
 
     </div>
