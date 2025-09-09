@@ -9,21 +9,28 @@
 </head>
 <body>
     
-    <jsp:include page="/header.jsp"></jsp:include>
+   
+<div id="wrap">
 
-    <div id="wrap">
-        <!-- 카카오지도 담을 영역 -->
+        <jsp:include page="/header.jsp"></jsp:include>
+
+        <div id="container">
+
         <div id="criminal_container">
             내 위치 반경 2km 내 등록된 성범죄자 인원수 : <span id="criminal_count"> 0 </span> 명
         </div>
-        <div id="map" style="width:420px;height:790px;"></div>
-    </div>
-    <div class="box_search">
+        <div class="box_search">
         <input type="search" id="innerQuery" class="tf_keyword" value title="검색어 입력"
         placeholder="장소, 주소, 버스검색" name autocomplete="off" autocorrect="off" autocapitalize="off"
         spellcheck="false" maxlength="100">
         <button type="button"> 주소검색 </button>
-    <jsp:include page="/footer.jsp"></jsp:include>
+        </div>
+        
+
+        <div id="map"></div>
+        <jsp:include page="/footer.jsp"></jsp:include>
+
+    </div>
     <!-- 카카오지도 API -->
     <script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35&libraries=services,geometry"></script>
     <script src='/js/safety/criminal.js'></script>
