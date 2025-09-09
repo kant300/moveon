@@ -17,27 +17,27 @@
             </div>
 
             <div class="weatherBox">
-    <div class="weather">
-        <div class="location">인천 부평구 (테스트용 샘플 데이터)</div>
-        <div class="t1h">30°</div>
-        <div class="pty">맑음</div>
+                <div class="weather">
+                    <div class="addr">인천 부평구 (테스트용 샘플 데이터)</div>
+                    <div class="t1h">30°</div>
+                    <div class="pty">맑음</div>
 
-        <div class="weatherDetails">
-            <div class="item">
-                <span class="label">습도</span>
-                <span>86%</span>
+                    <div class="weatherDetails">
+                        <div class="item">
+                            <span class="label">습도</span>
+                            <span>86%</span>
+                        </div>
+                        <div class="item">
+                            <span class="label">하늘</span>
+                            <span>맑음</span>
+                        </div>
+                        <div class="item">
+                            <span class="label">풍속</span>
+                            <span>5m/s</span>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="item">
-                <span class="label">하늘</span>
-                <span>맑음</span>
-            </div>
-            <div class="item">
-                <span class="label">풍속</span>
-                <span>5m/s</span>
-            </div>
-        </div>
-    </div>
-</div>
 
             <div class="infoBox">
                 <div class="btnBox1">

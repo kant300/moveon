@@ -66,24 +66,33 @@ const displayWeather = async () => {
                     }
                     hour = hour.slice(0, 2);
 
+                    // 날씨에 따른 아이콘 그리기
+                    let icon;
+                    if (pty == "맑음" && sky == "맑음") icon = "☀️";
+                    else if (sky == "구름많음") icon = "⛅️";
+                    else if (sky == "흐림") icon = "☁️";
+                    else if (pty == "비" || pty == "비/눈" || pty == "소나기") icon = "🌧";
+                    else if (pty == "눈") icon = "🌨";
+
                     // HTML에 그리기
                     const weather = document.querySelector(".weather");
-                    let html = ` <div class="addr"><strong>${addr}</strong>의 날씨 (${hour}시 기준)</div>
-                                    <div class="t1h">${t1h}°</div>
-                                    <div class="pty">${pty}</div>
+                    let html = `<div class="addr"><strong>${addr}</strong>의 날씨 (${hour}시 기준)</div>
+                                    <div class="t1h">${icon} ${t1h}° ${pty}</div>
+                                    
 
                                     <div class="weatherDetails">
-                                    <div class="item">
-                                        <span class="label">습도</span>
-                                        <span>${reh}%</span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="label">하늘</span>
-                                        <span>${sky}</span>
-                                    </div>
-                                    <div class="item">
-                                        <span class="label">풍속</span>
-                                        <span>${wsd}m/s</span>
+                                        <div class="item">
+                                            <span class="label">습도</span>
+                                            <span>${reh}%</span>
+                                        </div>
+                                        <div class="item">
+                                            <span class="label">하늘</span>
+                                            <span>${sky}</span>
+                                        </div>
+                                        <div class="item">
+                                            <span class="label">풍속</span>
+                                            <span>${wsd}m/s</span>
+                                        </div>
                                     </div>
                                 </div>`;
 
