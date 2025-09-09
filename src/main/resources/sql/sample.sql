@@ -194,7 +194,50 @@ INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('
 INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('허영진', '인천광역시 중구 서해대로94번길 11 (신흥동3가)', '인천광역시 중구 서해대로94번길 11 (신흥동3가)', 37.4728851477373, 126.6324452417);
 INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('황성룡', '인천광역시 중구 운남로184번길 3 (운남동)', '부산광역시 사하구 장림번영로104번길 10 (장림동)', 37.493984998425, 126.534143056887);
 INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('강성빈', '인천광역시 중구 율목로 18-2 (율목동)', '인천광역시 미추홀구 경인로 403 (주안동)', 37.4689018325029, 126.63364479263);
-
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('강봉식', '인천광역시 서구 가남로 203-1 (석남동)', '인천광역시 서구 가남로 203-1 (석남동)', 37.499862823868, 126.675481557784);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김건수', '인천광역시 서구 심곡로 106 (심곡동)', '인천광역시 서구 심곡로 106 (심곡동)', 37.5422132669228, 126.681459710748);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김고건', '인천광역시 서구 석남로 90-6 (석남동)', '인천광역시 서구 석남로 90-6 (석남동)', 37.5004499457181, 126.671450078915);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김민우', '인천광역시 서구 서곶로 458 (검암동)', '인천광역시 서구 서곶로 458 (검암동)', 37.558402487232, 126.677728385707);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김상준', '인천광역시 서구 서달로116번길 7-1 (석남동)', '인천광역시 서구 서달로116번길 7-1 (석남동)', 37.5092999261109, 126.679511629716);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김성진', '인천광역시 서구 서달로 3-1 (석남동)', '인천광역시 서구 서달로 3-1 (석남동)', 37.4989097613995, 126.677792215072);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김연기', '인천광역시 서구 원당대로 860 (당하동)', '경기도 안산시 상록구 안산천동로1길 29 (월피동)', 37.593282173907, 126.696870872013);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김용식', '인천광역시 서구 검단로502번길 18 (마전동)', '인천광역시 서구 검단로502번길 18 (마전동)', 37.6014337408621, 126.660708792996);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김재훈', '인천광역시 서구 가정로152번길 12-15 (가좌동)', '인천광역시 서구 가정로152번길 12-15 (가좌동)', 37.4976706553424, 126.673248217091);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김진석', '인천광역시 서구 장고개로275번길 21 (가좌동)', '인천광역시 서구 장고개로275번길 21 (가좌동)', 37.4904269215822, 126.681887360476);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김태권', '인천광역시 서구 검단로744번4길 12 (불로동)', '인천광역시 서구 검단로623번길 86 (마전동)', 37.6118267865209, 126.686337683494);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('김택순', '인천광역시 서구 원당대로 860 (당하동)', '인천광역시 서구 원당대로 860 (당하동)', 37.593282173907, 126.696870872013);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('류형석', '인천광역시 서구 가남로 167 (가좌동)', '인천광역시 서구 가남로 167 (가좌동)', 37.4965512673598, 126.674985766493);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('문남수', '인천광역시 서구 가경주로40번길 4-7 (가정동)', '인천광역시 서구 가경주로40번길 4-7 (가정동)', 37.5165122205607, 126.674197004132);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('문동준', '인천광역시 서구 원당대로685번3길 4 (마전동)', '인천광역시 서구 원당대로685번3길 4 (마전동)', 37.5946396833767, 126.677555982967);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('박복규', '인천광역시 서구 원당대로685번4길 10 (마전동)', '인천광역시 서구 원당대로685번4길 10 (마전동)', 37.5949313044924, 126.678404082885);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('박은창', '인천광역시 서구 원석로196번길 53 (원창동)', '인천광역시 서구 원석로196번길 53 (원창동)', 37.5131117484365, 126.647732430891);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('박주호', '인천광역시 서구 염곡로714번길 1 (연희동)', '인천광역시 서구 염곡로714번길 1 (연희동)', 37.5486725080082, 126.669237931985);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('박혜성', '인천광역시 서구 강남로 11-1 (석남동)', '인천광역시 서구 강남로 11-1 (석남동)', 37.5109305429783, 126.671730568028);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('박흥석', '인천광역시 서구 완정로228번안길 4 (금곡동)', '인천광역시 서구 완정로228번안길 4 (금곡동)', 37.6052923648942, 126.65197318644);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('배승섭', '인천광역시 서구 원당대로 860 (당하동)', '인천광역시 서구 원당대로 860 (당하동)', 37.593282173907, 126.696870872013);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('백승범', '인천광역시 서구 가경주로24번길 7-2 (가정동)', '인천광역시 서구 가경주로24번길 7-2 (가정동)', 37.5155714629016, 126.67448251822);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('성윤창', '인천광역시 서구 탁옥로98번길 2 (심곡동)', '인천광역시 서구 탁옥로98번길 2 (심곡동)', 37.5434907921128, 126.680360520741);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('안명호', '인천광역시 서구 원당대로 860 (당하동)', '인천광역시 서구 원당대로 860 (당하동)', 37.593282173907, 126.696870872013);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('안익현', '인천광역시 서구 이음1로 420 (원당동)', '인천광역시 서구 이음1로 420 (원당동)', 37.5986523735114, 126.7155642206);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('오창석', '인천광역시 서구 원당대로 860 (당하동)', '인천광역시 서구 원당대로 860 (당하동)', 37.593282173907, 126.696870872013);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('유문송', '인천광역시 서구 서곶로 12 (가정동)', '인천광역시 서구 도요지로42번길 45-8 (경서동)', 37.5221006149823, 126.685308711343);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('유형중', '인천광역시 서구 봉수대로1568번길 64 (금곡동)', '인천광역시 서구 봉수대로1568번길 64 (금곡동)', 37.616841770214, 126.645449506446);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('윤상돈', '인천광역시 서구 경서로31번길 47 (경서동)', '인천광역시 서구 경서로31번길 47 (경서동)', 37.5573676792338, 126.651125447793);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이동렬', '인천광역시 서구 석곶로8번길 13-1 (가정동)', '인천광역시 서구 석곶로8번길 13-1 (가정동)', 37.5182232328851, 126.675347314024);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이민수', '인천광역시 서구 가정로152번길 6 (가좌동)', '인천광역시 서구 가정로152번길 6 (가좌동)', 37.4979249128259, 126.672432889967);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이병진', '인천광역시 서구 승학로333번길 33-11 (연희동)', '인천광역시 서구 승학로333번길 33-11 (연희동)', 37.5498755001962, 126.670263091462);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이세종', '인천광역시 서구 검단로 421 (왕길동)', '인천광역시 서구 검단로 421 (왕길동)', 37.5998221162714, 126.651667328731);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이수민', '인천광역시 서구 새오개로 76-2 (신현동)', '인천광역시 서구 새오개로 76-2 (신현동)', 37.5166410018327, 126.665726789375);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이은성', '인천광역시 서구 경중로 20 (경서동)', '인천광역시 서구 경중로 20 (경서동)', 37.5487753145463, 126.652701683189);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이정래', '인천광역시 서구 심곡로 86 (심곡동)', '인천광역시 미추홀구 경원대로 911-3 (주안동)', 37.5416580844921, 126.679432916961);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이정현', '인천광역시 서구 북항로245번길 13-17 (원창동)', '인천광역시 서구 북항로245번길 13-17 (원창동)', 37.5048847243113, 126.622955932973);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('이지만', '인천광역시 서구 칠천왕로 29 (석남동)', '인천광역시 서구 칠천왕로 29 (석남동)', 37.5089160393437, 126.671260400703);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('전홍기', '인천광역시 서구 염곡로327번길 10 (신현동)', '인천광역시 서구 염곡로327번길 10 (신현동)', 37.5143629916466, 126.667990456269);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('정용철', '인천광역시 서구 탁옥로73번길 54-5 (연희동)', '인천광역시 서구 탁옥로73번길 54-5 (연희동)', 37.5487344135591, 126.678372719988);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('조병식', '인천광역시 서구 승학로506번안길 3-11 (검암동)', '인천광역시 서구 승학로506번안길 3-11 (검암동)', 37.5639410541677, 126.67561636464);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('최윤정', '인천광역시 서구 간촌로 28-3 (연희동)', '인천광역시 서구 간촌로 28-3 (연희동)', 37.5489519216945, 126.680067081449);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('태권일', '인천광역시 서구 봉오대로318번길 23 (가정동)', '인천광역시 서구 봉오대로318번길 23 (가정동)', 37.5261436747725, 126.683558032279);
+INSERT INTO criminal (cName, cAddress, cAddress2, latitude, longitude) VALUES ('황정민', '인천광역시 서구 신석로121번길 30 (석남동)', '인천광역시 서구 신석로121번길 30 (석남동)', 37.5125680460119, 126.675883059856);
 
 
 -- 선학 데이터
