@@ -32,7 +32,7 @@ const kakaomap = async () => {
         marker.setMap(map);
         // 3. positions 배열에 삽입한 데이터를 꺼내옵니다
         kakao.maps.event.addListener( marker, 'click' , () => {
-            var iwContent= `<div style="padding:5px;">${value["도로명 주소"]}</div>`,
+            var iwContent= `<div style="width:150px;text-align:center;padding:6px 0;padding-top:18px;">${value["도로명 주소"]}</div>`,
                 iwRemoveable = true;
 
             // 인포윈도우를 생성합니다
