@@ -21,9 +21,9 @@
         </div>
         <div class="box_search">
         <input type="search" id="innerQuery" class="tf_keyword" value title="검색어 입력"
-        placeholder="장소, 주소, 버스검색" name autocomplete="off" autocorrect="off" autocapitalize="off"
+        placeholder="장소, 주소검색" name autocomplete="off" autocorrect="off" autocapitalize="off"
         spellcheck="false" maxlength="100">
-        <button type="button"> 주소검색 </button>
+        <button type="button"> 검색 </button>
         </div>
         
         
