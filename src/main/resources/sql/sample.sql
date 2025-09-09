@@ -522,6 +522,8 @@ INSERT INTO clothing_bin (manage_no, address, latitude, longitude) VALUES ('동�
 INSERT INTO clothing_bin (manage_no, address, latitude, longitude) VALUES ('동춘동-22', '인천광역시 연수구 송도힐즈로에서 송도힐즈로 4길의 분기점', 37.402364, 126.658834);
 
 
+
+
 select * from trash;
 select * from criminal;
 select * from clothing_bin;
