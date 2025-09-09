@@ -68,12 +68,24 @@ const displayWeather = async () => {
 
                     // HTML에 그리기
                     const weather = document.querySelector(".weather");
-                    let html = `<div class="addr">${addr}의 날씨 (${hour}시 기준)</div>
-                                <div class="t1h">기온 : ${t1h}도</div>
-                                <div class="reh">습도 : ${reh}%</div>
-                                <div class="pty">날씨 : ${pty}</div>
-                                <div class="sky">하늘 : ${sky}</div>
-                                <div class="wsd">풍속 : ${wsd}m/s</div>`;
+                    let html = ` <div class="addr"><strong>${addr}</strong>의 날씨 (${hour}시 기준)</div>
+                                    <div class="t1h">${t1h}°</div>
+                                    <div class="pty">${pty}</div>
+
+                                    <div class="weatherDetails">
+                                    <div class="item">
+                                        <span class="label">습도</span>
+                                        <span>${reh}%</span>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label">하늘</span>
+                                        <span>${sky}</span>
+                                    </div>
+                                    <div class="item">
+                                        <span class="label">풍속</span>
+                                        <span>${wsd}m/s</span>
+                                    </div>
+                                </div>`;
 
                     weather.innerHTML = html;
                 }
