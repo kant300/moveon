@@ -60,7 +60,25 @@ body {
 .sample{ 
     width: 135px;
     height: 135px;
+    margin-bottom: -10px;
 }
+.btnBox1 div, .btnBox2 div {
+    text-align: center;  /* 텍스트 가운데 정렬 */
+    width: 150px;
+}
+
+.btnBox1 a, .btnBox2 a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    height: 100%; /* 전체 높이 차지 */
+    text-align: center;
+} 
+
 
 .weatherBox {
     background: linear-gradient(to bottom, #f5faff, #e0f7ff);
