@@ -2,6 +2,7 @@ console.log("clothing_bin.js open");
 
 // [2] 카카오맵 
 const kakaomap = async () => {
+    
  var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
         center : new kakao.maps.LatLng(37.4178, 126.67897), // 지도의 중심좌표
         level : 3 // 지도의 확대 레벨

@@ -23,7 +23,7 @@
 
 
     <!-- 카카오지도 API -->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35&libraries=services"></script>
     <script src="/js/living/clothing_bin.js"></script>
 </body>
 </html>
