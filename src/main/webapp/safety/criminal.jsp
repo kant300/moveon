@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>무브온 : 생활편의통합 플랫폼</title>
-    
+    <link rel="stylesheet" href="/css/safety/criminal.css">
 </head>
 <body>
     <div id="wrap">
@@ -19,7 +19,7 @@
                 <button type="button" style="background-color: black;"> 검색 </button>
             </div>
         
-            <div id="map" style="height: 762px;"></div>
+            <div id="map" style="height: 735px;"></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>
