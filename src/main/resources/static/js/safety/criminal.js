@@ -63,9 +63,7 @@ const createMap = async () => {
           map: map
         });
 
-        if (circle) {
-          circle.setMap(null);
-        }
+        if (circle) { circle.setMap(null); }
 
         // 2km 반경의 원 생성
         circle = new kakao.maps.Circle({
@@ -157,3 +155,15 @@ const loadCriminals = async (map, myLocation) => {
 
   document.getElementById('criminal_count').innerText = criminalCount;
 };
+
+// 검색 실행 함수
+const searchAddressOrPlace = ( keyword ) => {
+  const geocoder = new kakao.maps.services.Geocoder();
+  const places = new kakao.maps.services.Places();
+
+  // 주소 검색 시도
+  geocoder.addressSearch(keyword, async( result, status ) => {
+    if ( status === kakao.maps.services.Status.OK && result.length >0 ){}
+  })
+  setSearchMarker( coords );
+}
