@@ -11,7 +11,7 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div>지하철 내 에스컬레이터/엘리베이터 위치 정보</div>
+            <div>지하철 엘리베이터/에스컬레이터 위치 정보</div>
             <div id="map"></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
