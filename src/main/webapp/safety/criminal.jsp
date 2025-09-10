@@ -16,7 +16,7 @@
 
             <div class="box_search">
                 <input type="search" id="innerQuery" class="tf_keyword" placeholder="장소, 주소검색" maxlength="100">
-                <button type="button" style="background-color: black;"> 검색 </button>
+                <button type="button" class="search_button" style="background-color: #99E2FF;"> 검색 </button>
             </div>
         
             <div id="map" style="height: 735px;"></div>
