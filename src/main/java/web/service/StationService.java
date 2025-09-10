@@ -87,11 +87,11 @@ public class StationService {
         }
 
         // 디버깅용 코드 (문학경기장, 엘리베이터, 3호기를 고장현황 리스트에 추가)
-        /* Map<String, String> item = new LinkedHashMap<>();
+        Map<String, String> item = new LinkedHashMap<>();
         item.put("역사", "문학경기장");
         item.put("장비", "엘리베이터");
         item.put("호기", "3");
-        webList.add(item); */
+        webList.add(item);
 
         // for (Map<String, String> result : webList) {
         //     System.out.println(result);
