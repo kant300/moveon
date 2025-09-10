@@ -111,7 +111,7 @@ const createMap = async () => {
         myInfoWindow = new kakao.maps.InfoWindow( {
             map:map,
             position:myLocation,
-            content: `<div style="padding:3px; font-family: 'NanumGothic';">나의 현위치</div>`,
+            content: `<div style="padding:3px; font-family: 'NanumGothic';">현재 위치입니다.</div>`,
             removable : true
         } );
         myInfoWindow.open(map, myMarker);
