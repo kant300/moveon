@@ -12,6 +12,9 @@
                 flex-direction: column;
                 align-items: center;
             }
+            *{
+                font-family: 'NanumGothic';
+            }
     </style>
 
 </head>
