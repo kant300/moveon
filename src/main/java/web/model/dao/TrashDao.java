@@ -30,19 +30,41 @@ public class TrashDao extends Dao{
         return false;
     } // m end
 
-    // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를  출력한다.
-    public List<TrashDto> trashPrint(){
-        List<TrashDto> list = new ArrayList<>();
+    // [2-1] 조회할 정보의 개수(페이지네이션)
+    public int getTotalCount( int pNo ){
         try{// 1. SQL 작성
-            String sql = "select * from trash";
+            String sql = "select count(*) from trash where pNo = ?";
             // 2. SQL 기재
             PreparedStatement ps = conn.prepareStatement(sql);
-            // 3. SQL 매개변수 대입 // 매개변수 없음
+            // 3. SQL 매개변수 대입
+            ps.setInt(1,pNo);
+            // 4. SQL 실행
+            ResultSet rs = ps.executeQuery();
+            // 5. SQL 결과에 따른 로직/리턴/확인
+            if( rs.next() ){
+                return rs.getInt(1); // 첫번째 레코드의 속성값 1개 반환
+            }
+        }catch (Exception e){System.out.println(e);}
+            return 0;
+    }
+
+    // [2-2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를  출력한다.
+    public List<TrashDto> trashPrint(int pNo, int startRow , int count){
+        List<TrashDto> list = new ArrayList<>();
+        try{// 1. SQL 작성
+            String sql = "select * from trash where pNo = ? order by tNo desc limit ?, ?";
+            // 2. SQL 기재
+            PreparedStatement ps = conn.prepareStatement(sql);
+            // 3. SQL 매개변수 대입
+            ps.setInt(1,pNo);
+            ps.setInt(2,startRow);
+            ps.setInt(3,count);
             // 4. SQL 실행
             ResultSet rs = ps.executeQuery();
             // 5. SQL 결과에 따른 로직/리턴/확인
             while ( rs.next() ){
                 TrashDto trashDto = new TrashDto();
+                trashDto.setPNo(rs.getInt("pNo"));
                 trashDto.setTNo(rs.getInt("tNo"));
                 trashDto.setTCity(rs.getString("tCity"));
                 trashDto.setTGu(rs.getString("tGu"));

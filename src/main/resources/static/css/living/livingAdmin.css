@@ -15,7 +15,9 @@ a{
     color: black;
     text-decoration: none;
 }
-
+li{
+    list-style:none;
+}
 body {
     background: linear-gradient(135deg, #f0f9ff, #e0f7fa);
     font-family: 'NanumGothic';
@@ -97,7 +99,33 @@ button:hover {
     background-color: #00b0ff;
     transform: translateY(-2px);
 }
+.pageBtnBox{
+        display: flex
+;
+    justify-content: space-between;
+    align-items: baseline;
+}
+.pageBtnBox .pageBtn a {
+    color:white;
+}
 
+.pageBtnBox .pageBtn{
+    background-color: #4dc3ff;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+.pageBtnBox .pageBtn:hover {
+    background-color: #00b0ff;
+    transform: translateY(-2px);
+}
 /* 테이블 */
 table {
     width: 100%;

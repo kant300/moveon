@@ -2,6 +2,7 @@ package web.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import web.model.dto.PageDto;
 import web.model.dto.TrashDto;
 import web.service.TrashService;
 
@@ -24,7 +25,11 @@ public class TrashController {
 
     // [2] 쓰레기 배출정보 전체조회	//	모든 쓰레기 배출정보(dto)를 출력한다.
     @GetMapping("")
-    public List<TrashDto> trashPrint(){return trashService.trashPrint(); }
+    public PageDto trashPrint(@RequestParam( defaultValue = "1" ) int pNo,
+                              @RequestParam( defaultValue = "1" ) int page,
+                              @RequestParam( defaultValue = "5" ) int count){
+        return trashService.trashPrint(pNo,page,count);
+    }
 
     // [3] 쓰레기 배출정보 개별조회 // 특정한 쓰레기 번호로 쓰레기 배출정보 출력한다.
     @GetMapping("/find") // http:localhost:8080/living/trash/find?tCity=?&tGu=?

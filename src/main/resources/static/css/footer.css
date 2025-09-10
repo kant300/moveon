@@ -18,7 +18,7 @@ a:active {
 }    
 
 .tabBar{
-    height: 6vh;
+    height: 6.8vh;
     background: rgb(77, 204, 255);
     display: flex;
     justify-content: space-evenly;
