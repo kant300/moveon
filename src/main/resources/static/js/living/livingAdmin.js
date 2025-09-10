@@ -6,7 +6,7 @@ $(document).ready(function() {
             $('#summernote').summernote({
                 lang: 'ko-KR', // 썸머노트 메뉴들을 한글화 속성
                 minHeight: 300, // 썸머노트 구역 최소높이    
-                placeholder : '배출정보를 입력해주세요.' // 가이드 라인
+                placeholder : '배출정보를 입력해주세요.', // 가이드 라인
             });
         });
 

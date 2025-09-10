@@ -18,13 +18,12 @@
     <link rel="stylesheet" href="/css/living/livingAdmin.css">
 </head>
 <body>
-
-    <h3> 관리자 페이지 </h3> </br>
+    <h3> 관리자 수정 페이지 </h3> </br>
+    <h3><a href="/index.jsp">메인페이지로 이동 </a></h3></br>
     
-    <h3> 수정 구역 </h3>
     <div class="addWrap">
         <div class="addContainer">
-            <h3> 쓰레기 정보 수정 </h3> </br>
+            <h4> 쓰레기 정보 수정 </h4> </br>
             <form id="trashForm">
             지역시 :
             <select class="tCity" id="tCitySelect">
