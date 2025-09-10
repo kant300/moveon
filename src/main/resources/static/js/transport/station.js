@@ -53,7 +53,7 @@ const createMap = async () => {
         });
 
         // 3. positions 배열에 삽입한 데이터를 꺼내옵니다
-        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:18px;">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+        let iwContent = `<div style="width:150px;text-align:center;padding:6px 0;padding-top:18px;font-family: 'NanumGothic';">${obj.title}역의 ${obj.unit}호 ${obj.equipment}는 ${obj.status}입니다.</div>` // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
         var iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
         // 인포윈도우를 생성합니다
@@ -83,7 +83,7 @@ const createMap = async () => {
                 lon = position.coords.longitude; // 경도
             
             var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                message = '<div style="padding:5px;">현재 위치입니다.</div>'; // 인포윈도우에 표시될 내용입니다
+                message = `<div style="padding:5px;font-family: 'NanumGothic';">현재 위치입니다.</div>`; // 인포윈도우에 표시될 내용입니다
             
             // 마커와 인포윈도우를 표시합니다
             displayMarker(locPosition, message);
