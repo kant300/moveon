@@ -1,13 +1,13 @@
+// 전역변수 선언
 let map; // 지도 객체
-let circle = null;
-let markers = [];
-let clickMarker = null; // 클릭, 검색 마커
+let circle = null; // 2km 반경 원
+let clickMarker = null; // 클릭, 검색시 생성되는 마커
 let myMarker = null; // 나의 현재 위치 마커
 let myInfoWindow = null; // 나의 현위치 인포윈도우
-let criminalMarkers = []; // 성범죄자 마커들
-let myLocation = null; // 나의 현재위치 좌표
+let criminalMarkers = []; // 성범죄자 마커들 배열에 모든 성범죄자 마커저장 -> 기존 마커 제거용이
+// let myLocation = null; // 나의 현재위치 좌표
 
-
+// 지도 기본옵션
 const mapContainer = document.querySelector('#map');
   const mapOption = {
     center: new kakao.maps.LatLng(37.4123326, 126.6878251), // 지도의 중심좌표 (원인재역)
@@ -16,10 +16,42 @@ const mapContainer = document.querySelector('#map');
 
 map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
+// 현재 위치 버튼 생성
+function addCurrentLocationControl() {
+  const controlDiv = document.createElement('div');
+  const controlUI = document.createElement('button');
+  controlUI.innerText = '내 위치로';
+  controlUI.style.cssText = `
+    background-color: #fff;
+    border: 1px solid #888;
+    border-radius: 5px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+  `;
+  controlDiv.appendChild(controlUI);
+}
+  
+
+// 기존 마커와 원 제거 함수
+// function clearMarkers(){
+//   if (clickMarker){
+//     clickMarker.setMap(null);
+//     clickMarker = null;
+//   }
+//   if( circle ){
+//     circle.setMap(null);
+//     circle = null;
+//   }
+//   if( criminalMarkers.length > 0 ){
+//     criminalMarkers.forEach( m => m.setMap( null ) );
+//     criminalMarkers = [];  
+//     }
+//   }
+
+
 // 1. 카카오맵 초기화
 const createMap = async () => {
-    let clickMarker = null; // 클릭으로 생성된 마커 저장용
-
   // 지도 클릭 이벤트
   kakao.maps.event.addListener(map, 'click', async (mouseEvent) => {
     if (clickMarker) {
@@ -28,15 +60,15 @@ const createMap = async () => {
 
     const latlng = mouseEvent.latLng;
     const clickLocation = new kakao.maps.LatLng(latlng.getLat(), latlng.getLng());
-
+    
     // 새로운 클릭 마커 생성
     clickMarker = new kakao.maps.Marker({
       position: clickLocation,
       map: map
     });
 
-    if (circle) {
-      circle.setMap(null);
+    if (circle) { 
+      circle.setMap(null); 
     }
 
     // 2km 반경의 원 생성
@@ -71,13 +103,19 @@ const createMap = async () => {
           position: myLocation,
           map: map
         });
-        // 인포윈도우
+        myMarker.setMap(map);
+
+        // 사용자의 현재위치 인포윈도우 
         myInfoWindow = new kakao.maps.InfoWindow( {
-          content:`<div style="font-size:12px; white-space:nowrap;">나의 현위치</div>`,
+            map:map,
+            position:myLocation,
+            content: `<div style="padding:3px; font-family: 'NanumGothic';">현재 위치입니다.</div>`,
+            removable : true
         } );
         myInfoWindow.open(map, myMarker);
 
         if (circle) { circle.setMap(null); }// 원삭제
+        // clearMarkers();
 
         // 2km 반경의 원 생성
         circle = new kakao.maps.Circle({
@@ -110,23 +148,6 @@ const createMap = async () => {
 };
 
 createMap();
-
-// 기존 마커와 원 정리 함수
-function clearMarkers(){
-  if (clickMarker){
-    clickMarker.setMap(null);
-    clickMarker = null;
-  }
-  if( circle ){
-    circle.setMap(null);
-    circle = null;
-  }
-  if( criminalMarkers.length > 0 ){
-    criminalMarkers.forEach( m => m.setMap( null ) );
-    criminalMarkers = [];  
-    }
-  }
-
 
 // 범죄자 데이터를 로드하고 마커를 그리는 함수
 const loadCriminals = async (map, myLocation) => {
@@ -168,7 +189,10 @@ const loadCriminals = async (map, myLocation) => {
 
         criminalMarkers.push(marker);
 
-        const iwContent = `<div style="padding:5px;font-size:12px;"> ${criminal.cAddress}</div>`;
+        const iwContent = `
+          <div style="font-size:12px;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"> 
+            ${criminal.cAddress}
+          </div>`;
         const infowindow = new kakao.maps.InfoWindow({
           content: iwContent,
           removable: true
@@ -186,16 +210,17 @@ const loadCriminals = async (map, myLocation) => {
 
 // 검색 실행 함수
 const searchAddressOrPlace = (keyword) => {
+  if (clickMarker) clickMarker.setMap(null);
   const geocoder = new kakao.maps.services.Geocoder();
   const places = new kakao.maps.services.Places();
 
-  // 1️⃣ 주소 검색 시도
+  // 주소 검색 시도
   geocoder.addressSearch(keyword, async (result, status) => {
     if (status === kakao.maps.services.Status.OK && result.length > 0) {
       const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
       setSearchMarker(coords);
     } else {
-      // 2️⃣ 주소 검색 실패 → 장소 키워드 검색
+      // 주소 검색 실패 → 장소 키워드 검색
       places.keywordSearch(keyword, async (data, status) => {
         if (status === kakao.maps.services.Status.OK && data.length > 0) {
           const coords = new kakao.maps.LatLng(data[0].y, data[0].x);
@@ -210,8 +235,9 @@ const searchAddressOrPlace = (keyword) => {
 
 // 마커 찍고 2km반경 원 + 성범죄자 로드
 const setSearchMarker = async (latlng) => {
-  if (clickMarker) clickMarker.setMap(null);
+  clickMarker.setMap(null);
 
+  console.log(clickMarker)
   clickMarker = new kakao.maps.Marker({
     position: latlng,
     map: map
@@ -250,7 +276,7 @@ document.querySelector('.box_search button').addEventListener('click',() => {
 // 엔터키 이벤트
 document.querySelector('.tf_keyword').addEventListener('keydown', (event) => {
   console.log(event);
-  if (event.key == "Enter") {
+    if (event.key == "Enter") {
     event.preventDefault(); // 기본 엔터 동작 막기
     const keyword = event.target.value.trim();
     if (!keyword) {

@@ -4,7 +4,7 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>무브온 : 생활편의통합 플랫폼</title>
-    
+    <link rel="stylesheet" href="/css/safety/criminal.css">
 </head>
 <body>
     <div id="wrap">
@@ -16,10 +16,10 @@
 
             <div class="box_search">
                 <input type="search" id="innerQuery" class="tf_keyword" placeholder="장소, 주소검색" maxlength="100">
-                <button type="button" style="background-color: black;"> 검색 </button>
+                <button type="button" class="search_button" style="background-color: #99E2FF;"> 검색 </button>
             </div>
         
-            <div id="map" style="height: 762px;"></div>
+            <div id="map" style="height: 735px;"></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>
