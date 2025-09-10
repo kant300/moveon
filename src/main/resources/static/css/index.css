@@ -30,8 +30,11 @@ body {
     align-items: center;
     
 }
-#headerBox{ display: flex;}
-.logo{ width: 150px; height: 150px;}
+#headerBox{ display: flex;
+    padding-right: 18px;}
+.logo{     width: 150px;
+    height: 180px;
+    padding: 20px;}
 #title{ 
     display: flex;
     align-items: center;
