@@ -23,6 +23,14 @@ const createMap = async () => {
             status: obj.상태
         });
     }
+
+    // 클러스터러 적용
+    var clusterer = new kakao.maps.MarkerClusterer({
+        map: map, // 클러스터러에 표시할 지도 객체
+        averageCenter: true, // 클러스터 마커의 위치를 클러스터된 마커들의 평균 위치로 설정
+        minLevel: 4 // 클러스터링이 실행될 최소 지도 레벨
+    });
+    var markers = [];
         
     // 엘리베이터, 에스컬레이터 마커 찍기
     for (let i = 0; i < positions.length; i ++) {
@@ -39,7 +47,6 @@ const createMap = async () => {
         
         // 마커를 생성합니다
         let marker = new kakao.maps.Marker({
-            map: map, // 마커를 표시할 지도
             position: obj.latlng, // 마커를 표시할 위치
             title : obj.title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
             image : markerImage // 마커 이미지 
@@ -60,7 +67,10 @@ const createMap = async () => {
             // 마커 위에 인포윈도우를 표시합니다
             infowindow.open(map, marker);  
         });
+
+        markers.push(marker);
     }
+    clusterer.addMarkers(markers);
 
     // 본인 위치 찍기
     // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
