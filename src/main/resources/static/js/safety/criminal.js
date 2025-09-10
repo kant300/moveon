@@ -1,6 +1,4 @@
-// 1. 카카오맵 초기화
-const createMap = async () => {
-  const mapContainer = document.querySelector('#map');
+const mapContainer = document.querySelector('#map');
   const mapOption = {
     center: new kakao.maps.LatLng(37.4123326, 126.6878251), // 지도의 중심좌표 (원인재역)
     level: 3 // 지도의 확대레벨
@@ -8,7 +6,9 @@ const createMap = async () => {
 
   const map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
-  let circle = null;
+// 1. 카카오맵 초기화
+const createMap = async () => {
+    let circle = null;
   let clickMarker = null; // 클릭으로 생성된 마커 저장용
 
   // 지도 클릭 이벤트
