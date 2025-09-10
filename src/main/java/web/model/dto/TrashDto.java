@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor@NoArgsConstructor
 @Data
 public class TrashDto {
+    private int pNo;        // 페이지네이션 번호 // 생략가능 디폴트 값 1 설정
     private int tNo;        // 쓰레기 배출 정보 번호 // 생략가능, 자동번호 설정
     private String tCity;   // 배출지역시
     private String tGu;     // 배출지역구

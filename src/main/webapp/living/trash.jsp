@@ -19,7 +19,7 @@
 
                     <div id="infoBox"> 쓰레기 정보 </div>
                     <div class="floating-icon">
-                        <a href="/living/livingAdmin.jsp">
+                        <a href="/living/livingAdmin.jsp?pno=1&page=1">
                             <img src="/img/manage_accounts_100dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg" class="icon">
                         </a>
                     </div>

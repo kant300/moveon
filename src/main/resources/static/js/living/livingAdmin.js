@@ -172,35 +172,104 @@ const trashAdd = async() => {
 
   loadCityOptions();
 
-// [2] 전체조회 
-const trashPrint = async() =>{
-  console.log('trashPrint.exe');
-  // 1. fetch option GET 생략
-  const response = await fetch("/living/trash")
-  // 2. 응답자료 타입변환
-  const data = await response.json();
-  // 3. 어디에
-  const printTbody = document.querySelector('#printTbody')
-  // 4. 무엇을
-  let html = ''; // 초기값 설정
-  for( let i = 0; i < data.length ; i++ ){
-    const dto = data[i]; // i번째 dto 꺼낸다.
-    html += `<tr>
-            <td> ${ dto.tno }</td>
-            <td> ${ dto.tcity }</td>
-            <td> ${ dto.tgu}</td>
-            <td id="info"> ${ dto.tinfo }</td>
-            <td> ${ dto.tday }</td>
-            <td>  
-              <button type="button" onclick="trashUpdateMove('${dto.tcity}','${dto.tgu}')">수정</button>
-              <button type="button" onclick="trashDelete(${dto.tno})">삭제</button>
-            </td>
-        </tr>`
+  // [2-1] 사용자 요청한 URL 에서 pno 가져오기
+  const params = new URL(location.href).searchParams;
+  
+  const pno = params.get('pno'); console.log( pno );
+  const page = params.get('page') || 1; // page가 존재하지 않으면 1
+  
+  // [2-2] 요청 매개변수를 이용한 fetch 쓰레기정보 게시물 요청하기
+  const trashPrint = async () => { console.log('trashPrint.exe');
+
+    try{// 1) fetch 이용한 쓰레기정보 게시물 요청
+        const url = `/living/trash?pNo=${pno}&page=${page}`;
+        const response = await fetch (url); // get 방식 option 생략
+        const data = await response.json(); console.log(data); // data <--> pageDto
+        // 2) fetch 결과를 테이블에 출력하기 
+        const printTbody = document.querySelector('#printTbody')
+        let html= ''; // 초기값 설정
+        // 3) fetch로 부터 받은 데이터를 html 문자열로 반환
+          data.data.forEach( ( dto ) => {
+            html +=
+               `<tr>
+                    <td> ${ dto.tno }</td>
+                    <td> ${ dto.tcity }</td>
+                    <td> ${ dto.tgu}</td>
+                    <td id="info"> ${ dto.tinfo }</td>
+                    <td> ${ dto.tday }</td>
+                    <td>  
+                      <button type="button" onclick="trashUpdateMove('${dto.tcity}','${dto.tgu}')">수정</button>
+                      <button type="button" onclick="trashDelete(${dto.tno})">삭제</button>
+                    </td>
+                </tr>`
+          })
+          // 4) 출력
+          printTbody.innerHTML = html;
+          // 5) 페이징 버튼 출력 함수 호출
+          pageButtons( data );
+        
+    }catch( e ){ console.log( e ); }
+
   }
-  // 5. 출력
-  printTbody.innerHTML = html;
-}
+
+  // [2-3] 페이징 버튼 출력 함수 
+  const pageButtons = async( data ) =>{
+    
+    // 백엔드로 부터 받은 pageDto{} <----> data{}
+    let currentPage = parseInt( data.currentPage ); // parseInt( 자료 ) : 자료를 int타입으로 변환
+    let totalPage = data.totalPage;
+    let startBtn = data.startBtn;
+    let endBtn = data.endBtn;
+
+    // 페이징 처리할 위치 
+    const pageBtnBox = document.querySelector('.pageBtnBox');
+    let html = ''; // 초기값 설정
+
+    // 이전 버튼 , 유효성검사) 만약에 현재페이지가 1이하면 1로 고정
+    html += `<li class="pageBtn"><a href="/living/livingAdmin.jsp?pno=${pno}&page=${currentPage <= 1 ? 1 : currentPage-1}">이전</a></li>`
+    // 페이지 버튼
+    for( let i = startBtn ; i <= endBtn ; i ++){
+      html += `<li><a href="/living/livingAdmin.jsp?pno=${pno}&page=${i}"
+      style="${ i == currentPage ? 'color : #2195f3ff; font-weight : bold;' : ''}">
+      ${i}
+      </a></li>`
+    }
+    // 다음 버튼 , 유효성검사) 만약에 다음페이지가 전체페이지수 보다 커지면 전체페이지수로 고정
+    html += `<li class="pageBtn"><a href="/living/livingAdmin.jsp?pno=${pno}&page=${currentPage+1 >= totalPage ? totalPage : currentPage+1}">다음</a></li>`
+    pageBtnBox.innerHTML = html;
+
+  } // func end
 trashPrint(); // 최초 1번 실행
+
+// // [2] 전체조회 
+// const trashPrint = async() =>{
+//   console.log('trashPrint.exe');
+//   // 1. fetch option GET 생략
+//   const response = await fetch("/living/trash")
+//   // 2. 응답자료 타입변환
+//   const data = await response.json();
+//   // 3. 어디에
+//   const printTbody = document.querySelector('#printTbody')
+//   // 4. 무엇을
+//   let html = ''; // 초기값 설정
+//   for( let i = 0; i < data.length ; i++ ){
+//     const dto = data[i]; // i번째 dto 꺼낸다.
+//     html += `<tr>
+//             <td> ${ dto.tno }</td>
+//             <td> ${ dto.tcity }</td>
+//             <td> ${ dto.tgu}</td>
+//             <td id="info"> ${ dto.tinfo }</td>
+//             <td> ${ dto.tday }</td>
+//             <td>  
+//               <button type="button" onclick="trashUpdateMove('${dto.tcity}','${dto.tgu}')">수정</button>
+//               <button type="button" onclick="trashDelete(${dto.tno})">삭제</button>
+//             </td>
+//         </tr>`
+//   }
+//   // 5. 출력
+//   printTbody.innerHTML = html;
+// }
+// trashPrint(); // 최초 1번 실행
 
 // [3] 수정페이지로 이동
 const trashUpdateMove = async( tcity,tgu ) =>{
@@ -224,6 +293,7 @@ const trashDelete = async( tno ) =>{
     }else{
         alert('삭제 실패');
     }
+  
   
 }
 

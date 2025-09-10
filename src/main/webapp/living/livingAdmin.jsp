@@ -44,6 +44,7 @@
     
     <div class="printWrap">
         <div class="printContainer">
+            <h3> 쓰레기 정보 목록 </h3> </br>
             <table>
                 <thead>
                     <tr>
@@ -58,6 +59,17 @@
                 <tbody id="printTbody">
                 </tbody>
             </table>
+            <div style="width:200px;">
+                <ul class="pageBtnBox"
+                    style="display: flex; justify-content: space-between;">
+                    
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">1</a></li>
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">2</a></li>
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">3</a></li>
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">4</a></li>
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">5</a></li>
+                </ul>
+            </div>
         </div>    
     </div>
 
