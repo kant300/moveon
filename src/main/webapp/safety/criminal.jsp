@@ -15,10 +15,8 @@
             </div>
 
             <div class="box_search">
-                <input type="text" id="innerQuery" class="tf_keyword" value title="검색어 입력"
-                placeholder="장소, 주소, 버스검색" name autocomplete="off" autocorrect="off" autocapitalize="off"
-                spellcheck="false" maxlength="100">
-                <button type="button" onclick="addressSearchBtn()"> 주소검색 </button>
+                <input type="search" id="innerQuery" class="tf_keyword" placeholder="장소, 주소검색" maxlength="100">
+                <button type="button" style="background-color: black;"> 검색 </button>
             </div>
         
             <div id="map" style="height: 762px;"></div>

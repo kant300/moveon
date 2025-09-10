@@ -1,20 +1,29 @@
+let map; // 지도 객체
+let circle = null;
+let markers = [];
+let clickMarker = null; // 클릭, 검색 마커
+let myMarker = null; // 나의 현재 위치 마커
+let myInfoWindow = null; // 나의 현위치 인포윈도우
+let criminalMarkers = []; // 성범죄자 마커들
+let myLocation = null; // 나의 현재위치 좌표
+
+
 const mapContainer = document.querySelector('#map');
   const mapOption = {
     center: new kakao.maps.LatLng(37.4123326, 126.6878251), // 지도의 중심좌표 (원인재역)
     level: 3 // 지도의 확대레벨
   };
 
-  const map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
+map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
 // 1. 카카오맵 초기화
 const createMap = async () => {
-    let circle = null;
-  let clickMarker = null; // 클릭으로 생성된 마커 저장용
+    let clickMarker = null; // 클릭으로 생성된 마커 저장용
 
   // 지도 클릭 이벤트
   kakao.maps.event.addListener(map, 'click', async (mouseEvent) => {
     if (clickMarker) {
-      clickMarker.setMap(null); // 기존 마커 제거
+      clickMarker.setMap(null); // 기존 마커와 원 제거
     }
 
     const latlng = mouseEvent.latLng;
@@ -57,13 +66,18 @@ const createMap = async () => {
         const myLat = position.coords.latitude;
         const myLon = position.coords.longitude;
         const myLocation = new kakao.maps.LatLng(myLat, myLon);
-
-        new kakao.maps.Marker({
+        // 현재위치 마커생성
+        myMarker = new kakao.maps.Marker({
           position: myLocation,
           map: map
         });
+        // 인포윈도우
+        myInfoWindow = new kakao.maps.InfoWindow( {
+          content:`<div style="font-size:12px; white-space:nowrap;">나의 현위치</div>`,
+        } );
+        myInfoWindow.open(map, myMarker);
 
-        if (circle) { circle.setMap(null); }
+        if (circle) { circle.setMap(null); }// 원삭제
 
         // 2km 반경의 원 생성
         circle = new kakao.maps.Circle({
@@ -97,8 +111,22 @@ const createMap = async () => {
 
 createMap();
 
-// 범죄자 마커들을 저장할 배열
-let criminalMarkers = [];
+// 기존 마커와 원 정리 함수
+function clearMarkers(){
+  if (clickMarker){
+    clickMarker.setMap(null);
+    clickMarker = null;
+  }
+  if( circle ){
+    circle.setMap(null);
+    circle = null;
+  }
+  if( criminalMarkers.length > 0 ){
+    criminalMarkers.forEach( m => m.setMap( null ) );
+    criminalMarkers = [];  
+    }
+  }
+
 
 // 범죄자 데이터를 로드하고 마커를 그리는 함수
 const loadCriminals = async (map, myLocation) => {
@@ -157,13 +185,78 @@ const loadCriminals = async (map, myLocation) => {
 };
 
 // 검색 실행 함수
-const searchAddressOrPlace = ( keyword ) => {
+const searchAddressOrPlace = (keyword) => {
   const geocoder = new kakao.maps.services.Geocoder();
   const places = new kakao.maps.services.Places();
 
-  // 주소 검색 시도
-  geocoder.addressSearch(keyword, async( result, status ) => {
-    if ( status === kakao.maps.services.Status.OK && result.length >0 ){}
-  })
-  setSearchMarker( coords );
-}
+  // 1️⃣ 주소 검색 시도
+  geocoder.addressSearch(keyword, async (result, status) => {
+    if (status === kakao.maps.services.Status.OK && result.length > 0) {
+      const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      setSearchMarker(coords);
+    } else {
+      // 2️⃣ 주소 검색 실패 → 장소 키워드 검색
+      places.keywordSearch(keyword, async (data, status) => {
+        if (status === kakao.maps.services.Status.OK && data.length > 0) {
+          const coords = new kakao.maps.LatLng(data[0].y, data[0].x);
+          setSearchMarker(coords);
+        } else {
+          alert("검색 결과가 없습니다.");
+        }
+      });
+    }
+  });
+};
+
+// 마커 찍고 2km반경 원 + 성범죄자 로드
+const setSearchMarker = async (latlng) => {
+  if (clickMarker) clickMarker.setMap(null);
+
+  clickMarker = new kakao.maps.Marker({
+    position: latlng,
+    map: map
+  });
+
+  if (circle) circle.setMap(null);
+
+  circle = new kakao.maps.Circle({
+    center: latlng,
+    radius: 2000,
+    strokeWeight: 5,
+    strokeColor: '#75B8FA',
+    strokeOpacity: 0.8,
+    strokeStyle: 'dashed',
+    fillColor: '#CFE7FF',
+    fillOpacity: 0.5
+  });
+  circle.setMap(map);
+
+  map.setCenter(latlng);
+  map.setLevel(5);
+
+  await loadCriminals(map, latlng);
+};
+
+// 버튼 클릭이벤트
+document.querySelector('.box_search button').addEventListener('click',() => {
+  const keyword = document.getElementById('innerQuery').value.trim();
+  if(!keyword){
+    alert("검색어를 입력하세요");
+    return;
+  }
+  searchAddressOrPlace(keyword);
+} );
+
+// 엔터키 이벤트
+document.querySelector('.tf_keyword').addEventListener('keydown', (event) => {
+  console.log(event);
+  if (event.key == "Enter") {
+    event.preventDefault(); // 기본 엔터 동작 막기
+    const keyword = event.target.value.trim();
+    if (!keyword) {
+      alert("검색어를 입력하세요.");
+      return;
+    }
+    searchAddressOrPlace(keyword);
+  }
+});
