@@ -10,16 +10,17 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div id="criminal_container">
+            <div id="map">
+                <div id="criminalTitle" class="mapText"> 성범죄자 위치 정보 
+                <span class="box_search">
+                    <input type="search" id="innerQuery" class="tf_keyword" placeholder="장소, 주소검색" maxlength="100">
+                    <button type="button" class="search_button" style="background-color: #99E2FF;"> 검색 </button>
+                </span>
+                <div id="criminal_container">
                 내 위치 반경 2km 내 등록된 성범죄자 인원수 : <span id="criminal_count"> 0 </span> 명
+                </div>
+            </div> 
             </div>
-
-            <div class="box_search">
-                <input type="search" id="innerQuery" class="tf_keyword" placeholder="장소, 주소검색" maxlength="100">
-                <button type="button" class="search_button" style="background-color: #99E2FF;"> 검색 </button>
-            </div>
-        
-            <div id="map" style="height: 735px;"></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>

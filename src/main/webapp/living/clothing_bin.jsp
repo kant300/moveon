@@ -11,7 +11,8 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div id="map"></div>
+            
+            <div id="map"><div class="mapText">의류수거함 위치정보</div></div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>

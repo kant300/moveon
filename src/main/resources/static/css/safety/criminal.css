@@ -1,6 +1,10 @@
 *{
     font-family: 'NanumGothic';
 }
+#container
+#criminalTitle{
+    padding-top:10px;
+}
 #criminal_container{
     font-size: 16px;
     text-align: center;
