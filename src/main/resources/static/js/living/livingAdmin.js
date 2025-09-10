@@ -189,7 +189,7 @@ const trashPrint = async() =>{
             <td> ${ dto.tno }</td>
             <td> ${ dto.tcity }</td>
             <td> ${ dto.tgu}</td>
-            <td> ${ dto.tinfo }</td>
+            <td id="info"> ${ dto.tinfo }</td>
             <td> ${ dto.tday }</td>
             <td>  
               <button type="button" onclick="trashUpdateMove('${dto.tcity}','${dto.tgu}')">수정</button>
