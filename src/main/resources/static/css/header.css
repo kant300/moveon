@@ -34,7 +34,7 @@
 #wrap > #container > #map{
     height: 88vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     position:relative;
     z-index: 11;
 }
@@ -42,7 +42,7 @@
     position: absolute;
     z-index: 10;
     padding: 5px;
-    background: #ffffff00;
+    background-color: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     font-size: 17px;
 }
