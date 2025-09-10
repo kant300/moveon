@@ -52,8 +52,6 @@ function addCurrentLocationControl() {
 
 // 1. 카카오맵 초기화
 const createMap = async () => {
-  
-
   // 지도 클릭 이벤트
   kakao.maps.event.addListener(map, 'click', async (mouseEvent) => {
     if (clickMarker) {
@@ -69,8 +67,8 @@ const createMap = async () => {
       map: map
     });
 
-    if (circle) {
-      circle.setMap(null);
+    if (circle) { 
+      circle.setMap(null); 
     }
 
     // 2km 반경의 원 생성
@@ -151,8 +149,6 @@ const createMap = async () => {
 
 createMap();
 
-
-
 // 범죄자 데이터를 로드하고 마커를 그리는 함수
 const loadCriminals = async (map, myLocation) => {
   // 기존 마커 제거
@@ -194,9 +190,8 @@ const loadCriminals = async (map, myLocation) => {
         criminalMarkers.push(marker);
 
         const iwContent = `
-          <div style="font-size:12px;max-width:200px; 
-          white-space:nowrap; overflow:hidden; text-overflow:ellipsis;"> 
-          ${criminal.cAddress}
+          <div style="font-size:12px;max-width:200px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"> 
+            ${criminal.cAddress}
           </div>`;
         const infowindow = new kakao.maps.InfoWindow({
           content: iwContent,
@@ -215,18 +210,17 @@ const loadCriminals = async (map, myLocation) => {
 
 // 검색 실행 함수
 const searchAddressOrPlace = (keyword) => {
-
   if (clickMarker) clickMarker.setMap(null);
   const geocoder = new kakao.maps.services.Geocoder();
   const places = new kakao.maps.services.Places();
 
-  // 1️⃣ 주소 검색 시도
+  // 주소 검색 시도
   geocoder.addressSearch(keyword, async (result, status) => {
     if (status === kakao.maps.services.Status.OK && result.length > 0) {
       const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
       setSearchMarker(coords);
     } else {
-      // 2️⃣ 주소 검색 실패 → 장소 키워드 검색
+      // 주소 검색 실패 → 장소 키워드 검색
       places.keywordSearch(keyword, async (data, status) => {
         if (status === kakao.maps.services.Status.OK && data.length > 0) {
           const coords = new kakao.maps.LatLng(data[0].y, data[0].x);
@@ -241,7 +235,7 @@ const searchAddressOrPlace = (keyword) => {
 
 // 마커 찍고 2km반경 원 + 성범죄자 로드
 const setSearchMarker = async (latlng) => {
-   clickMarker.setMap(null);
+  clickMarker.setMap(null);
 
   console.log(clickMarker)
   clickMarker = new kakao.maps.Marker({
