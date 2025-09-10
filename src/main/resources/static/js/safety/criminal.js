@@ -163,7 +163,15 @@ const searchAddressOrPlace = ( keyword ) => {
 
   // 주소 검색 시도
   geocoder.addressSearch(keyword, async( result, status ) => {
-    if ( status === kakao.maps.services.Status.OK && result.length >0 ){}
+    if ( status === kakao.maps.services.Status.OK && result.length >0 ){
+      const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+      setSearchMarker(coords);
+    }else{
+      // 주소검색 실패 -> 장소 키워드 검색
+      places.keywordSearch(keyword, asyne( data, status )=> {
+        
+      })
+    }
   })
   setSearchMarker( coords );
 }
