@@ -13,7 +13,12 @@
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
             <div id="headerBox">
-                <img src="favicon.ico" class="logo"><span id="title"> mOveOn </span>
+                <img src="favicon.ico" class="logo">
+                <div>
+                    <div id="title"> mOveOn </div>
+                    <div id="sub-title"> 생활편의통합 플랫폼 </div>
+                </div>
+
             </div>
 
             <div class="weatherBox">

@@ -14,14 +14,16 @@
         <jsp:include page="/header.jsp"></jsp:include>
             <div id="container">
                     <!-- 각자가 들어갈 html 들 -->
-                    <div style="font-weight: bold; font-size: 17px;padding: 5px;">쓰레기 배출정보</div><br>
-                    <div id="textBox"> 위치 엑세스가 거부되었습니다. 엑세스를 허용해주세요. </div> </br></br>
+                    <div style="min-height: 750px;     min-width: 399px;">
+                        <div style="font-weight: bold; font-size: 17px;padding: 5px;">쓰레기 배출정보</div><br>
+                        <div id="textBox"> 위치 엑세스가 거부되었습니다. 엑세스를 허용해주세요. </div> </br></br>
 
-                    <div id="infoBox"> 쓰레기 정보 </div>
-                    <div class="floating-icon">
-                        <a href="/living/livingAdmin.jsp?pno=1&page=1">
-                            <img src="/img/manage_accounts_100dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg" class="icon">
-                        </a>
+                        <div id="infoBox"> 쓰레기 정보 </div>
+                        <div class="floating-icon">
+                            <a href="/living/livingAdmin.jsp?pno=1&page=1">
+                                <img src="/img/manage_accounts_100dp_1F1F1F_FILL0_wght400_GRAD0_opsz48.svg" class="icon">
+                            </a>
+                        </div>
                     </div>
             </div>
         <jsp:include page="/footer.jsp"></jsp:include>

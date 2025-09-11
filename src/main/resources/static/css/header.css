@@ -26,10 +26,13 @@
     width: 420px;
     height: 98vh;
     margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
 }
 /* 레이아웃 아래의 본문 */
 #wrap > #container{
     height: 86.2vh;
+    display: flex;
+    justify-content: space-evenly;
 }
 #wrap > #container > #map{
     height: 86.2vh;
@@ -50,8 +53,8 @@
   position: absolute;
   bottom: 50px;
   left: 10px;
-  width: 50px;
-  height: 50px;
+  width: 56px;
+  height: 56px;
   z-index: 20; /* mapText보다 위에 뜨게 */
   background-color: rgba(255, 255, 255, 0.8);
   color: black;
@@ -66,7 +69,7 @@
 }
 
 .headerBar{
-    height: 5vh;
+    height: 7vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,7 +78,7 @@
 }
 .headerBar a{
         font-weight: bold;
-        font-size: 20px;
+        font-size: 25px;
         font-family: 'NanumGothic';
 }
 .topMenu{ 
@@ -87,11 +90,14 @@
 
 /* 버튼 스타일 */
 button, .sample {
+width: 110px;
+    padding: 15px;
+    height: 110px;
   background: var(--brand);
   color: white;
   font-weight: 600;
   border: none;
-  border-radius: 12px;
+  border-radius: 100px;
   cursor: pointer;
   transition: all 0.25s ease;
   box-shadow: 0 3px 6px rgba(0,0,0,0.15);
@@ -107,7 +113,6 @@ button:hover, .sample:hover {
 #container, .content, .infoBox {
   background: #fff;
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
 }

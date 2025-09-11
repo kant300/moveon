@@ -51,8 +51,9 @@ const trashFind = async ( tCity , tGu ) =>{
         const data = await response.json();
         // 2 무엇을 // 응답받은 자료를 특정한 html에 출력한다.
         document.querySelector('#infoBox').innerHTML = data.tinfo;
-
-    }catch(e){console.log(e)};
+    }catch(e){
+        document.querySelector('#infoBox').innerHTML = `해당 지역은 준비중 입니다.`
+    };
 }
 
 // [4] 이동함수 : living/trash.jsp 사용자가 접속한 위치의 쿼리스트링이 추가된 living/trash/find?tCity=&tGu= 로 이동
