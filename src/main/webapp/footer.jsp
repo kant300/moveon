@@ -15,6 +15,5 @@
         <div><a href="/safety/criminal.jsp"><img src="/img/crisis_alert_24dp_002244_FILL0_wght300_GRAD0_opsz24.svg" class="icon"></a></div>
         <div><a href="/transport/station.jsp"><img src="/img/elevator_24dp_002244_FILL0_wght300_GRAD0_opsz24.svg" class="icon"></a></div>
     </div>
-    <script src='header.js'></script>
 </body>
 </html>
