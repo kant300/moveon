@@ -16,6 +16,8 @@ const mapContainer = document.querySelector('#map');
 
 map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
+var initialPosition;
+
 
 // 1. 카카오맵 초기화
 const createMap = async () => {
@@ -80,6 +82,10 @@ const createMap = async () => {
             removable : true
         } );
         myInfoWindow.open(map, myMarker);
+
+        // 현재 위치 데이터를 전역 변수에 저장합니다.
+        initialPosition = myLocation;
+
 
         if (circle) { circle.setMap(null); }// 원삭제
         // clearMarkers();
@@ -254,3 +260,8 @@ document.querySelector('.tf_keyword').addEventListener('keydown', (event) => {
     searchAddressOrPlace(keyword);
   }
 });
+
+const moveToInitialPosition = () => {
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(initialPosition);      
+}
