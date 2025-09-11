@@ -1,12 +1,14 @@
+var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+mapOption = { 
+    center: new kakao.maps.LatLng(37.4066562, 126.6286125), // 지도의 중심좌표
+    level: 3 // 지도의 확대 레벨
+};
+
+var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+var initialPosition;
+
 const createMap = async () => {
-    var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-    mapOption = { 
-        center: new kakao.maps.LatLng(37.4066562, 126.6286125), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
-    };
-
-    var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
     // 데이터를 가져와 필요한 데이터를 삽입합니다
     // 1. 매핑된 데이터를 가져옵니다
     const response = await fetch("/station/data", {method : "GET"});
@@ -84,6 +86,9 @@ const createMap = async () => {
             
             var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
                 message = `<div style="padding:5px;font-family: 'NanumGothic';">현재 위치입니다.</div>`; // 인포윈도우에 표시될 내용입니다
+
+            // 현재 위치 데이터를 전역 변수에 저장합니다.
+            initialPosition = locPosition;
             
             // 마커와 인포윈도우를 표시합니다
             displayMarker(locPosition, message);
@@ -124,3 +129,8 @@ const createMap = async () => {
     }
 }
 createMap();
+
+const moveToInitialPosition = () => {
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(initialPosition);      
+}
