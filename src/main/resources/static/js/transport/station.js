@@ -9,6 +9,35 @@ var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니
 var initialPosition;
 
 const createMap = async () => {
+    // 본인 위치 찍기
+    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+    if (navigator.geolocation) {
+        
+        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
+        navigator.geolocation.getCurrentPosition(function(position) {
+            
+            var lat = position.coords.latitude, // 위도
+                lon = position.coords.longitude; // 경도
+            
+            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+                message = `<div style="padding:5px;font-family: 'NanumGothic';">현재 위치입니다.</div>`; // 인포윈도우에 표시될 내용입니다
+
+            // 현재 위치 데이터를 전역 변수에 저장합니다.
+            initialPosition = locPosition;
+            
+            // 마커와 인포윈도우를 표시합니다
+            displayMarker(locPosition, message);
+                
+        });
+        
+    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+        
+        var locPosition = new kakao.maps.LatLng(37.4066562, 126.6286125),    
+            message = 'geolocation을 사용할 수 없는 상태입니다.'
+            
+        displayMarker(locPosition, message);
+    }
+
     // 데이터를 가져와 필요한 데이터를 삽입합니다
     // 1. 매핑된 데이터를 가져옵니다
     const response = await fetch("/station/data", {method : "GET"});
@@ -73,35 +102,6 @@ const createMap = async () => {
         markers.push(marker);
     }
     clusterer.addMarkers(markers);
-
-    // 본인 위치 찍기
-    // HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-    if (navigator.geolocation) {
-        
-        // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-        navigator.geolocation.getCurrentPosition(function(position) {
-            
-            var lat = position.coords.latitude, // 위도
-                lon = position.coords.longitude; // 경도
-            
-            var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-                message = `<div style="padding:5px;font-family: 'NanumGothic';">현재 위치입니다.</div>`; // 인포윈도우에 표시될 내용입니다
-
-            // 현재 위치 데이터를 전역 변수에 저장합니다.
-            initialPosition = locPosition;
-            
-            // 마커와 인포윈도우를 표시합니다
-            displayMarker(locPosition, message);
-                
-        });
-        
-    } else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-        
-        var locPosition = new kakao.maps.LatLng(37.4066562, 126.6286125),    
-            message = 'geolocation을 사용할 수 없는 상태입니다.'
-            
-        displayMarker(locPosition, message);
-    }
 
     // 지도에 마커와 인포윈도우를 표시하는 함수입니다
     function displayMarker(locPosition, message) {
