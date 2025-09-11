@@ -13,9 +13,9 @@
         <div id="container">
             <div id="map">
                 <div class="mapText">지하철 엘리베이터/에스컬레이터 위치 정보</div>
+                <button class="mapLocation" type="button" onclick="moveToInitialPosition()">내위치</button>
             </div>
         </div>
-        <div style="text-align: right;"><button type="button" onclick="moveToInitialPosition()" style="color: black; background: #ffffff00; width: 40px; height: 40px;">내위치</button></div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>
     <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9eb4f86b6155c2fa2f5dac204d2cdb35&libraries=services,clusterer"></script>

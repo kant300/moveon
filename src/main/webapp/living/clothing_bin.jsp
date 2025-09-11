@@ -11,8 +11,10 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            
-            <div id="map"><div class="mapText">의류수거함 위치정보</div></div>
+            <div id="map">
+                <div class="mapText">의류수거함 위치정보</div>
+                <button class="mapLocation" type="button" onclick="moveToInitialPosition()">내위치</button>
+            </div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>
