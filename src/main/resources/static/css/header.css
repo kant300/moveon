@@ -48,8 +48,8 @@
 }
 .mapLocation {
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 50px;
+  left: 10px;
   width: 50px;
   height: 50px;
   z-index: 20; /* mapText보다 위에 뜨게 */
@@ -61,7 +61,7 @@
 }
 
 .mapLocation:hover {
-  background-color: #4dc3ff;
+  background-color: rgb(228 248 251);
   color: white;
 }
 
