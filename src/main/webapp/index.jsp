@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="infoBox">
+            <div class="infoBox" style="justify-content: space-evenly;">
                 <div class="btnBox1">
                     <div><a href="/living/trash.jsp"> <img src="img/recycling_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/> 쓰레기 배출정보</a></div>
                     <div><a href="/living/clothing_bin.jsp"> <img src="img/apparel_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" class="sample"><br/>의류수거함 위치정보 </a></div>

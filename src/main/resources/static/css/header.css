@@ -110,7 +110,6 @@ button:hover, .sample:hover {
   box-shadow: 0 4px 10px rgba(0,0,0,0.08);
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
 }
 
 /* 헤더 글씨 애니메이션 */
