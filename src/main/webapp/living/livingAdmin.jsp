@@ -36,7 +36,7 @@
             <select class="tGu" id="tGuSelect">
             <option value="">시/군/구를 선택하세요.</option>
             </select> <br><br>
-            배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> </br>
+            배출 정보 : <textarea class="tInfo" id="summernote" name="editoradata"></textarea> 
             <span><button type="button" onclick="trashAdd()">등록</button></span>
             </form>
         </div>    
@@ -60,7 +60,7 @@
                 </tbody>
             </table>
             <div style="width:200px;">
-                </br></br>
+                </br>
                 <ul class="pageBtnBox"
                     style="display: flex; justify-content: space-between;">
                     
