@@ -16,39 +16,6 @@ const mapContainer = document.querySelector('#map');
 
 map = new kakao.maps.Map(mapContainer, mapOption); // 지도생성
 
-// 현재 위치 버튼 생성
-function addCurrentLocationControl() {
-  const controlDiv = document.createElement('div');
-  const controlUI = document.createElement('button');
-  controlUI.innerText = '내 위치로';
-  controlUI.style.cssText = `
-    background-color: #fff;
-    border: 1px solid #888;
-    border-radius: 5px;
-    padding: 8px 12px;
-    cursor: pointer;
-    font-weight: bold;
-  `;
-  controlDiv.appendChild(controlUI);
-}
-  
-
-// 기존 마커와 원 제거 함수
-// function clearMarkers(){
-//   if (clickMarker){
-//     clickMarker.setMap(null);
-//     clickMarker = null;
-//   }
-//   if( circle ){
-//     circle.setMap(null);
-//     circle = null;
-//   }
-//   if( criminalMarkers.length > 0 ){
-//     criminalMarkers.forEach( m => m.setMap( null ) );
-//     criminalMarkers = [];  
-//     }
-//   }
-
 
 // 1. 카카오맵 초기화
 const createMap = async () => {
@@ -276,7 +243,7 @@ document.querySelector('.box_search button').addEventListener('click',() => {
 
 // 엔터키 이벤트
 document.querySelector('.tf_keyword').addEventListener('keydown', (event) => {
-  console.log(event);
+  //console.log(event);
     if (event.key == "Enter") {
     event.preventDefault(); // 기본 엔터 동작 막기
     const keyword = event.target.value.trim();
