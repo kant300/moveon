@@ -20,7 +20,7 @@
                 내 위치 반경 2km 내 등록된 성범죄자 인원수 : <span id="criminal_count"> 0 </span> 명
                 </div>
             </div> 
-            <button class="mapLocation" type="button" onclick="moveToInitialPosition()">내위치</button>
+            <button class="mapLocation" type="button" onclick="moveToInitialPosition()"><img src="/img/my_location_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" /></button>
             </div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
