@@ -235,7 +235,7 @@ const searchAddressOrPlace = (keyword) => {
 
 // 마커 찍고 2km반경 원 + 성범죄자 로드
 const setSearchMarker = async (latlng) => {
-  if (clickMarker != null)
+  if (clickMarker != null) 
     clickMarker.setMap(null);
 
   console.log(clickMarker)
