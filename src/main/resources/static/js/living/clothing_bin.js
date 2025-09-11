@@ -1,13 +1,17 @@
 console.log("clothing_bin.js open");
 
+var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
+            center : new kakao.maps.LatLng(37.4178, 126.67897), // 지도의 중심좌표
+            level : 9 // 지도의 확대 레벨
+        });
+
+var initialPosition;
+
 // [1] 카카오맵 함수
 const kakaomap = async () => {
 
     // 1.지도를 표시할 div
-    var map = new kakao.maps.Map(document.getElementById('map'), { // 지도를 표시할 div
-            center : new kakao.maps.LatLng(37.4178, 126.67897), // 지도의 중심좌표
-            level : 9 // 지도의 확대 레벨
-        });
+   
     
      // 2. 사용자의 현재 위치 가져오기
     if (navigator.geolocation) {
@@ -17,6 +21,9 @@ const kakaomap = async () => {
             const lon = position.coords.longitude;
             const myLocation = new kakao.maps.LatLng(lat, lon);
             
+            // 현재 위치 데이터를 전역 변수에 저장합니다.
+            initialPosition = myLocation;
+
         var marker = new kakao.maps.Marker({
             position: myLocation,
             map: map
@@ -29,6 +36,9 @@ const kakaomap = async () => {
             content: `<div style="padding:5px;font-family: 'NanumGothic';">현재 위치입니다.</div>`,
             removable : true
         });
+
+        
+
         infowindow.open(map,marker);
         });
     };    
@@ -99,3 +109,7 @@ const kakaomap = async () => {
 }
 kakaomap();
 
+const moveToInitialPosition = () => {
+    // 지도 중심좌표를 접속위치로 변경합니다
+    map.setCenter(initialPosition);      
+}
