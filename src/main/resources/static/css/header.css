@@ -24,15 +24,15 @@
 /* 레이아웃 */
 #wrap{
     width: 420px;
-    height: 100vh;
+    height: 98vh;
     margin: 0 auto;
 }
 /* 레이아웃 아래의 본문 */
 #wrap > #container{
-    height: 88vh;
+    height: 86.2vh;
 }
 #wrap > #container > #map{
-    height: 88vh;
+    height: 86.2vh;
     display: flex;
     justify-content: center;
     position:relative;
