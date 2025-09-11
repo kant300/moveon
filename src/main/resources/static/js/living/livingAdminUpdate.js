@@ -184,7 +184,7 @@ const trashUpdate = async () => {
       const data = await response.json();
     if( data === true ){
        alert('수정 완료')
-       location.href="/living/livingAdmin.jsp"
+       location.href="/living/livingAdmin.jsp?pno=1&page=1"
     }else{
       alert('수정 실패')
     }
