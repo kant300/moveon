@@ -60,10 +60,11 @@
                 </tbody>
             </table>
             <div style="width:200px;">
+                </br></br>
                 <ul class="pageBtnBox"
                     style="display: flex; justify-content: space-between;">
                     
-                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1">1</a></li>
+                    <li><a href="/living/livingAdmin.jsp?pno=1&page=1"><span>1</span></a></li>
                     <li><a href="/living/livingAdmin.jsp?pno=1&page=1">2</a></li>
                     <li><a href="/living/livingAdmin.jsp?pno=1&page=1">3</a></li>
                     <li><a href="/living/livingAdmin.jsp?pno=1&page=1">4</a></li>

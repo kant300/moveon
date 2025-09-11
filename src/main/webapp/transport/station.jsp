@@ -11,7 +11,10 @@
     <div id="wrap">
         <jsp:include page="/header.jsp"></jsp:include>
         <div id="container">
-            <div id="map"><div class="mapText">지하철 엘리베이터/에스컬레이터 위치 정보</div></div>
+            <div id="map">
+                <div class="mapText">지하철 엘리베이터/에스컬레이터 위치 정보</div>
+                <button class="mapLocation" type="button" onclick="moveToInitialPosition()"><img src="/img/my_location_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg" /></button>
+            </div>
         </div>
         <jsp:include page="/footer.jsp"></jsp:include>
     </div>

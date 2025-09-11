@@ -34,7 +34,7 @@
 #wrap > #container > #map{
     height: 88vh;
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
     position:relative;
     z-index: 11;
 }
@@ -42,9 +42,27 @@
     position: absolute;
     z-index: 10;
     padding: 5px;
-    background: #ffffff00;
+    background-color: rgba(255, 255, 255, 0.5);
     font-weight: bold;
     font-size: 17px;
+}
+.mapLocation {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  z-index: 20; /* mapText보다 위에 뜨게 */
+  background-color: rgba(255, 255, 255, 0.8);
+  color: black;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  font-size: 14px;
+}
+
+.mapLocation:hover {
+  background-color: #4dc3ff;
+  color: white;
 }
 
 .headerBar{
